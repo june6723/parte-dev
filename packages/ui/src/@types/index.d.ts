@@ -1,4 +1,4 @@
-import { DROPDOWN_POSITION } from '../constant';
+import { DROPDOWN_POSITION } from "../constant";
 
 declare global {
   type Option<T> = {
@@ -12,9 +12,7 @@ declare global {
     options: Option<T>[];
   };
   type DropdownPosition =
-    typeof DROPDOWN_POSITION[keyof typeof DROPDOWN_POSITION];
-
-  type Status = 'success' | 'info' | 'warning' | 'error';
+    (typeof DROPDOWN_POSITION)[keyof typeof DROPDOWN_POSITION];
 
   type Nullable<T> = T | null;
 }

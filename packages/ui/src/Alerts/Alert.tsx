@@ -1,14 +1,16 @@
 import { HTMLAttributes } from "react";
 import { IconButton } from "../IconButton";
-import ActionCrossIcon from "../parte-icons/Icons/ActionCrossIcon";
-import AlertDangerIcon from "../parte-icons/Icons/AlertDangerIcon";
-import AlertInfoIcon from "../parte-icons/Icons/AlertInfoIcon";
-import AlertSuccessIcon from "../parte-icons/Icons/AlertSuccessIcon";
-import AlertWarningIcon from "../parte-icons/Icons/AlertWarningIcon";
+import {
+  ActionCrossIcon,
+  AlertDangerIcon,
+  AlertInfoIcon,
+  AlertSuccessIcon,
+  AlertWarningIcon,
+} from "../../../icons/src";
 import * as Styled from "./Alert.styled";
-import { AlertProps } from "./Alert.types";
+import { AlertProps, AlertStatus } from "./Alert.types";
 
-const renderIcon = (currentStatus: Status) => {
+const renderIcon = (currentStatus: AlertStatus) => {
   switch (currentStatus) {
     case "success":
       return <AlertSuccessIcon size={16} />;
