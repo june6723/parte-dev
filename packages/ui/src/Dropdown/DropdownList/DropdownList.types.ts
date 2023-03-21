@@ -1,4 +1,4 @@
-type DropdownListBaseProps<T> = {
+export type DropdownListBaseProps<T> = {
   options: Option<T>[] | GroupOption<T>[];
   value?: Option<T>;
   onSelect?: (value: Option<T>) => void;
@@ -9,9 +9,9 @@ type DropdownListBaseProps<T> = {
   closeOnSelect?: boolean;
 };
 
-type DropdownListMultiProps<T> = Omit<
+export type DropdownListMultiProps<T> = Omit<
   DropdownListBaseProps<T>,
-  'value' | 'isMulti'
+  "value" | "isMulti"
 > & {
   isMulti: true;
   value?: Option<T>[];

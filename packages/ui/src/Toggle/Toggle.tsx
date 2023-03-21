@@ -1,7 +1,7 @@
-import * as Styled from './Toggle.styled';
-import { ToggleProps } from './Toggle.types';
+import * as Styled from "./Toggle.styled";
+import { ToggleProps } from "./Toggle.types";
 
-const Toggle = (props: ToggleProps) => {
+export const Toggle = (props: ToggleProps) => {
   const { label, disabled = false, on, onChange } = props;
 
   return (
@@ -17,5 +17,3 @@ const Toggle = (props: ToggleProps) => {
     </Styled.Container>
   );
 };
-
-export default Toggle;

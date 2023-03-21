@@ -1,7 +1,7 @@
-import { HTMLAttributes } from 'react';
-import { BadgeColors } from '../@foundations/Badge/badge.types';
+import { HTMLAttributes } from "react";
+import { BadgeColors } from "../@foundations";
 
-type BadgeType = 'badge' | 'pills';
+export type BadgeType = "badge" | "pills";
 
 export type BadgeProps = HTMLAttributes<HTMLButtonElement> & {
   type?: BadgeType;

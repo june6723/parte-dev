@@ -1,17 +1,14 @@
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import { Transition } from 'react-transition-group';
-import { Alert } from '../Alerts';
-import { Box } from '../Layout';
-import { ToastState } from './ToastManager';
-import * as Styled from './ToastManager.styled';
+import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { Transition } from "react-transition-group";
+import { Alert } from "../Alerts";
+import { Box } from "../Layout";
+import { ToastProps } from "./Toaster.types";
+import * as Styled from "./ToastManager.styled";
 
-type ToastProps = {
-  toast: ToastState;
-  onRemove: () => void;
-};
 const duration = 5;
 const ANIMATION_DURATION = 240;
-const Toast = memo(function Toast({ toast, onRemove }: ToastProps) {
+
+export const Toast = memo(function Toast({ toast, onRemove }: ToastProps) {
   const transitionRef = useRef(null);
   const [isShown, setIsShown] = useState(true);
   const [height, setHeight] = useState(0);
@@ -48,7 +45,7 @@ const Toast = memo(function Toast({ toast, onRemove }: ToastProps) {
   }, [startCloseTimer, clearCloseTimer]);
 
   useEffect(() => {
-    if (toast.isShown !== isShown && typeof toast.isShown === 'boolean') {
+    if (toast.isShown !== isShown && typeof toast.isShown === "boolean") {
       setIsShown(toast.isShown);
     }
   }, [isShown, toast.isShown]);
@@ -104,5 +101,3 @@ const Toast = memo(function Toast({ toast, onRemove }: ToastProps) {
     </Transition>
   );
 });
-
-export default Toast;

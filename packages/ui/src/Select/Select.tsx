@@ -2,7 +2,7 @@ import {
   AsyncPaginate,
   useComponents,
   wrapMenuList,
-} from 'react-select-async-paginate';
+} from "react-select-async-paginate";
 import StaticSelect, {
   ActionMeta,
   ControlProps,
@@ -19,24 +19,26 @@ import StaticSelect, {
   SelectInstance,
   MenuProps,
   MenuListProps,
-} from 'react-select';
-import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
-import ActionSearchIcon from '../parte-icons/Icons/ActionSearchIcon';
-import ActionSmallCrossIcon from '../parte-icons/Icons/ActionSmallCrossIcon';
-import ActionDeleteIcon from '../parte-icons/Icons/ActionDeleteIcon';
+} from "react-select";
+import {
+  InterfaceCaretDownIcon,
+  ActionSearchIcon,
+  ActionSmallCrossIcon,
+  ActionDeleteIcon,
+} from "../../../icons/src";
 import {
   ComponentType,
   KeyboardEventHandler,
   useMemo,
   useRef,
   useState,
-} from 'react';
-import useSelectStyle from './useSelectStyle';
-import { SelectProps } from './Select.types';
-import { SelectComponents } from 'react-select/dist/declarations/src/components';
-import { Box } from '../Layout';
-import { Caption, Heading, Paragraph } from '../@foundations/Typography';
-import { Spinner } from '../Spinner';
+} from "react";
+import useSelectStyle from "./useSelectStyle";
+import { SelectProps } from "./Select.types";
+import { SelectComponents } from "react-select/dist/declarations/src/components";
+import { Box } from "../Layout";
+import { Caption, Heading, Paragraph } from "../@foundations/Typography";
+import { Spinner } from "../Spinner";
 
 export const Control = ({
   children,
@@ -165,9 +167,9 @@ export const NoOptionsMessage = () => {
   );
 };
 
-export default function Select<T>(props: SelectProps<T>) {
+export function Select<T>(props: SelectProps<T>) {
   const {
-    placeholder = 'Select Event',
+    placeholder = "Select Event",
     isDisabled = false,
     isError = false,
     isMulti = false,
@@ -241,13 +243,13 @@ export default function Select<T>(props: SelectProps<T>) {
   const onFocus = () => isMulti && setShowMenuList(true);
   const onBlur = () => isMulti && setShowMenuList(false);
   const onKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       selectRef.current?.blur();
     }
   };
 
   const SelectComponent =
-    type === 'static' ? (
+    type === "static" ? (
       <StaticSelect
         components={defaultComponents}
         {...props}

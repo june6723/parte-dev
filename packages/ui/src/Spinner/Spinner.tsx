@@ -1,9 +1,9 @@
-import { memo } from 'react';
-import { Box } from '../Layout';
-import * as Styled from './Spinner.styled';
-import { SpinnerProps } from './Spinner.types';
+import { memo } from "react";
+import { Box } from "../Layout";
+import * as Styled from "./Spinner.styled";
+import { SpinnerProps } from "./Spinner.types";
 
-const Spinner = memo(({ size = 24 }: SpinnerProps) => {
+export const Spinner = memo(({ size = 24 }: SpinnerProps) => {
   return (
     <Box
       width={size}
@@ -18,5 +18,3 @@ const Spinner = memo(({ size = 24 }: SpinnerProps) => {
     </Box>
   );
 });
-
-export default Spinner;

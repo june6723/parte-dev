@@ -1,12 +1,12 @@
-import { useCallback, useState } from 'react';
-import { getInitial } from '../common/utils/badge.utils';
-import * as Styled from './Avatar.styled';
-import { AvatarProps } from './Avatar.types';
+import { useCallback, useState } from "react";
+import { getInitial } from "../common/utils/badge.utils";
+import * as Styled from "./Avatar.styled";
+import { AvatarProps } from "./Avatar.types";
 
-const Avatar = ({
-  avatarColor = 'AUTO',
+export const Avatar = ({
+  avatarColor = "AUTO",
   size = 32,
-  shape = 'CIRCLE',
+  shape = "CIRCLE",
   name,
   showInitial,
   src,
@@ -18,12 +18,10 @@ const Avatar = ({
   return (
     <Styled.Avatar avatarColor={avatarColor} size={size} shape={shape}>
       {imageUnavailable || showInitial ? (
-        <Styled.Text size={size}>{getInitial(name ?? '')}</Styled.Text>
+        <Styled.Text size={size}>{getInitial(name ?? "")}</Styled.Text>
       ) : (
         <Styled.Image src={src} onError={onError} />
       )}
     </Styled.Avatar>
   );
 };
-
-export default Avatar;

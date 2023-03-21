@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export type MenuRowType = 'title' | 'checkbox' | 'element';
+export type MenuRowType = "title" | "checkbox" | "element";
 
 export type MenuRowProps = {
   type?: MenuRowType;

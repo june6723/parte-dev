@@ -5,15 +5,15 @@ import {
   useRef,
   MouseEventHandler,
   useCallback,
-} from 'react';
-import preventBodyScroll from '../common/utils/scroll.util';
-import { Portal } from '../Portal';
-import { OverlayProps } from './Overlay.types';
-import * as Styled from './Overlay.styled';
-import { Transition, TransitionStatus } from 'react-transition-group';
-import { EnterHandler, ExitHandler } from 'react-transition-group/Transition';
+} from "react";
+import preventBodyScroll from "../common/utils/scroll.util";
+import { Portal } from "../Portal";
+import { OverlayProps } from "./Overlay.types";
+import * as Styled from "./Overlay.styled";
+import { Transition, TransitionStatus } from "react-transition-group";
+import { EnterHandler, ExitHandler } from "react-transition-group/Transition";
 
-const Overlay = memo(
+export const Overlay = memo(
   ({
     children,
     preventBodyScrolling = true,
@@ -33,22 +33,22 @@ const Overlay = memo(
       useState<HTMLElement | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [status, setStatus] = useState<TransitionStatus>(
-      isShown ? 'entering' : 'exited'
+      isShown ? "entering" : "exited"
     );
 
     useEffect(() => {
       if (isShown) {
-        setStatus('entering');
+        setStatus("entering");
       }
     }, [isShown]);
 
     const close = useCallback(() => {
       if (beforeClose?.()) return;
-      setStatus('exiting');
+      setStatus("exiting");
     }, [beforeClose]);
 
     const onEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && shouldCloseOnEsc) close();
+      if (e.key === "Escape" && shouldCloseOnEsc) close();
     };
 
     /**
@@ -76,10 +76,10 @@ const Overlay = memo(
         if (isFocusOutsideModal) {
           // Element marked autofocus has higher priority than the other clowns
           const autofocusElement =
-            containerRef.current.querySelector('[autofocus]');
+            containerRef.current.querySelector("[autofocus]");
           const wrapperElement =
-            containerRef.current.querySelector('[tabindex]');
-          const buttonElement = containerRef.current.querySelector('button');
+            containerRef.current.querySelector("[tabindex]");
+          const buttonElement = containerRef.current.querySelector("button");
 
           if (autofocusElement) {
             (autofocusElement as HTMLElement).focus();
@@ -113,17 +113,17 @@ const Overlay = memo(
     };
 
     useEffect(() => {
-      if (status === 'entered') {
+      if (status === "entered") {
         setPreviousActiveElement(document.activeElement as HTMLElement);
         bringFocusInsideOverlay();
       }
 
-      if (status === 'entering') {
-        document.body.addEventListener('keydown', onEsc, false);
+      if (status === "entering") {
+        document.body.addEventListener("keydown", onEsc, false);
       }
 
-      if (status === 'exiting') {
-        document.body.removeEventListener('keydown', onEsc, false);
+      if (status === "exiting") {
+        document.body.removeEventListener("keydown", onEsc, false);
         bringFocusBackToTarget();
       }
     }, [status]);
@@ -137,7 +137,7 @@ const Overlay = memo(
     useEffect(() => {
       return () => {
         handleBodyScroll(false);
-        document.body.removeEventListener('keydown', onEsc, false);
+        document.body.removeEventListener("keydown", onEsc, false);
       };
     }, []);
 
@@ -147,12 +147,12 @@ const Overlay = memo(
     };
 
     const handleEntering: EnterHandler<HTMLDivElement> = (isAppearing) => {
-      setStatus('entering');
+      setStatus("entering");
       onEntering?.(isAppearing);
     };
 
     const handleEntered: EnterHandler<HTMLDivElement> = (isAppearing) => {
-      setStatus('entered');
+      setStatus("entered");
       onEntered?.(isAppearing);
     };
 
@@ -162,12 +162,12 @@ const Overlay = memo(
     };
 
     const handleExiting: ExitHandler<HTMLDivElement> = () => {
-      setStatus('exiting');
+      setStatus("exiting");
       onExiting?.();
     };
 
     const handleExited: ExitHandler<HTMLDivElement> = () => {
-      setStatus('exited');
+      setStatus("exited");
       onExited?.();
     };
 
@@ -176,7 +176,7 @@ const Overlay = memo(
       close();
     };
 
-    if (status === 'exited') {
+    if (status === "exited") {
       return null;
     }
 
@@ -187,7 +187,7 @@ const Overlay = memo(
           appear
           unmountOnExit
           timeout={Styled.ANIMATION_DURATION}
-          in={isShown && status !== 'exiting'}
+          in={isShown && status !== "exiting"}
           onExit={handleExit}
           onExiting={handleExiting}
           onExited={handleExited}
@@ -203,7 +203,7 @@ const Overlay = memo(
               onClick={handleBackdropClick}
               data-state={state}
             >
-              {typeof children === 'function'
+              {typeof children === "function"
                 ? children({ state, close })
                 : children}
             </Styled.BackDrop>
@@ -213,5 +213,3 @@ const Overlay = memo(
     );
   }
 );
-
-export default Overlay;

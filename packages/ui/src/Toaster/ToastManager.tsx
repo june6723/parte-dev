@@ -1,28 +1,20 @@
-import { memo, useRef, useState } from 'react';
-import Toast from './Toast';
+import { memo, useRef, useState } from "react";
+import { Toast } from "./Toast";
 import {
   NotifyHandler,
   RemoveHandler,
-  ToastMinimumState,
-} from './Toaster.types';
+  ToastState,
+  ToastParams,
+} from "./Toaster.types";
 
-import * as Styled from './ToastManager.styled';
-
-export type ToastState = {
-  close: () => void;
-  description: string;
-  id: number | string;
-  status: Status;
-  title: string;
-  isShown?: boolean;
-};
+import * as Styled from "./ToastManager.styled";
 
 type ToastManagerProps = {
   bindNotify: (handler: NotifyHandler) => void;
   bindRemove: (hanlder: RemoveHandler) => void;
 };
 
-const ToastManager = memo(function ToastManager({
+export const ToastManager = memo(function ({
   bindNotify,
   bindRemove,
 }: ToastManagerProps) {
@@ -63,7 +55,7 @@ const ToastManager = memo(function ToastManager({
     }
   };
 
-  const createToastInstance = (passedProps: ToastMinimumState): ToastState => {
+  const createToastInstance = (passedProps: ToastParams): ToastState => {
     const { title, description, status } = passedProps;
     const uniqueId = idCounter.current;
     idCounter.current += 1;
@@ -73,7 +65,7 @@ const ToastManager = memo(function ToastManager({
     return {
       id: fixedId,
       title,
-      description: description ?? '',
+      description: description ?? "",
       close: () => safeCloseToast(fixedId),
       status,
     };
@@ -103,5 +95,3 @@ const ToastManager = memo(function ToastManager({
     </Styled.ToastContainer>
   );
 });
-
-export default ToastManager;

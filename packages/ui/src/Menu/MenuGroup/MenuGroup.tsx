@@ -1,8 +1,8 @@
-import { MenuRow } from '../MenuRow';
-import * as Styled from './MenuGroup.styled';
-import { MenuGroupProps } from './MenuGroup.types';
+import { MenuRow } from "../MenuRow";
+import * as Styled from "./MenuGroup.styled";
+import { MenuGroupProps } from "./MenuGroup.types";
 
-export default function MenuGroup({ title, children }: MenuGroupProps) {
+export function MenuGroup({ title, children }: MenuGroupProps) {
   return (
     <Styled.Group display="flex" flexDirection="column">
       {title && <MenuRow type="title">{title}</MenuRow>}

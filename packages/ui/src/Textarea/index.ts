@@ -1,1 +1,2 @@
-export { default as Textarea } from './Textarea';
+export * from "./Textarea.types";
+export { Textarea } from "./Textarea";

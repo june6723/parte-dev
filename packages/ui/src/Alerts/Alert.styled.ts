@@ -1,40 +1,40 @@
-import { HTMLAttributes } from 'react';
-import styled, { css, DefaultTheme } from 'styled-components';
-import { Box } from '../Layout';
-import { IconColor } from '../parte-icons/component/Icon';
-import { AlertProps } from './Alert.types';
+import { HTMLAttributes } from "react";
+import styled, { css, DefaultTheme } from "styled-components";
+import { Box } from "../Layout";
+import { ICON_COLOR } from "../../../icons/src";
+import { AlertProps, AlertStatus } from "./Alert.types";
 
 export const getColorByStatus = (
-  status: Status,
+  status: AlertStatus,
   theme: DefaultTheme
 ): { iconColor: string; backgroundColor: string; color: string } => {
   let colorInfos = {
-    backgroundColor: '',
-    color: '',
+    backgroundColor: "",
+    color: "",
   };
   switch (status) {
-    case 'success': {
+    case "success": {
       colorInfos = {
         backgroundColor: theme.colors.G50,
         color: theme.colors.G500,
       };
       break;
     }
-    case 'info': {
+    case "info": {
       colorInfos = {
         backgroundColor: theme.colors.B50,
         color: theme.colors.B500,
       };
       break;
     }
-    case 'warning': {
+    case "warning": {
       colorInfos = {
         backgroundColor: theme.colors.Y50,
         color: theme.colors.Y500,
       };
       break;
     }
-    case 'error': {
+    case "error": {
       colorInfos = {
         backgroundColor: theme.colors.R50,
         color: theme.colors.R500,
@@ -44,7 +44,7 @@ export const getColorByStatus = (
   }
   return {
     ...colorInfos,
-    iconColor: IconColor[status],
+    iconColor: ICON_COLOR[status],
   };
 };
 
@@ -106,17 +106,17 @@ const alertStyle = css<AlertProps>`
 export const Alert = styled(Box)<AlertProps & HTMLAttributes<HTMLDivElement>>`
   ${(props) => {
     const { type } = props;
-    if (type === 'alert-inline') {
+    if (type === "alert-inline") {
       return css`
         ${alertInlineStyle}
       `;
     }
-    if (type === 'toast') {
+    if (type === "toast") {
       return css`
         ${toastStyle}
       `;
     }
-    if (type === 'alert') {
+    if (type === "alert") {
       return css`
         ${alertStyle}
       `;

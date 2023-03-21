@@ -1,9 +1,9 @@
-import * as Styled from './Tag.styled';
-import { TagProps } from './Tag.types';
-import ActionSmallCrossIcon from '../../parte-icons/Icons/ActionSmallCrossIcon';
-import { Paragraph } from '../../@foundations/Typography';
+import * as Styled from "./Tag.styled";
+import { TagProps } from "./Tag.types";
+import { ActionSmallCrossIcon } from "../../../../icons/src";
+import { Paragraph } from "../../@foundations/Typography";
 
-function Tag({ tag, onRemove }: TagProps) {
+export function Tag({ tag, onRemove }: TagProps) {
   return (
     <Styled.Container
       status={tag.status}
@@ -26,5 +26,3 @@ function Tag({ tag, onRemove }: TagProps) {
     </Styled.Container>
   );
 }
-
-export default Tag;

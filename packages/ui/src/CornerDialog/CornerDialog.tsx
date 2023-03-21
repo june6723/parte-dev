@@ -1,11 +1,13 @@
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import { Transition } from 'react-transition-group';
-import { Dialog } from '../Dialog';
-import { Portal } from '../Portal';
-import * as Styled from './CornerDialog.styled';
-import { CornerDialogProps } from './CornerDialog.types';
+import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { Transition } from "react-transition-group";
+import { Dialog } from "../Dialog";
+import { Portal } from "../Portal";
+import * as Styled from "./CornerDialog.styled";
+import { CornerDialogProps } from "./CornerDialog.types";
 
-const CornerDialog = memo(function CornerDialog(props: CornerDialogProps) {
+export const CornerDialog = memo(function CornerDialog(
+  props: CornerDialogProps
+) {
   const {
     width = 448,
     children,
@@ -64,5 +66,3 @@ const CornerDialog = memo(function CornerDialog(props: CornerDialogProps) {
     </Portal>
   );
 });
-
-export default CornerDialog;

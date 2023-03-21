@@ -1,9 +1,9 @@
-import * as Styled from './Radio.styled';
-import { RadioProps } from './Radio.types';
-import { useContext } from 'react';
-import RadioGroupContext from '../RadioGroup/RadioGroupContext';
+import * as Styled from "./Radio.styled";
+import { RadioProps } from "./Radio.types";
+import { useContext } from "react";
+import RadioGroupContext from "../RadioGroup/RadioGroupContext";
 
-const Radio = ({ value, label, disabled = false }: RadioProps) => {
+export const Radio = ({ value, label, disabled = false }: RadioProps) => {
   const {
     value: selectedValue,
     name,
@@ -27,5 +27,3 @@ const Radio = ({ value, label, disabled = false }: RadioProps) => {
     </Styled.RadioWrapper>
   );
 };
-
-export default Radio;

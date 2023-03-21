@@ -1,7 +1,7 @@
-import { memo } from 'react';
-import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
-import * as Styled from './SideSheet.styled';
-import { SideCloseProps } from './SideSheet.types';
+import { memo } from "react";
+import { ActionCrossIcon } from "../../../icons/src";
+import * as Styled from "./SideSheet.styled";
+import { SideCloseProps } from "./SideSheet.types";
 
 const SheetClose = memo(({ onClick, state }: SideCloseProps) => {
   return (

@@ -1,1 +1,2 @@
-export { default as Overlay } from './Overlay';
+export { type OverlayProps, type OverlayChildrenProps } from "./Overlay.types";
+export { Overlay } from "./Overlay";

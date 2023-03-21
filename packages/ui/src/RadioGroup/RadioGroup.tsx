@@ -1,7 +1,7 @@
-import { RadioGroupProps } from './RadioGroup.types';
-import RadioGroupContext from './RadioGroupContext';
+import { RadioGroupProps } from "./RadioGroup.types";
+import RadioGroupContext from "./RadioGroupContext";
 
-const RadioGroup = ({
+export const RadioGroup = ({
   value,
   name,
   disabled = false,
@@ -14,5 +14,3 @@ const RadioGroup = ({
     </RadioGroupContext.Provider>
   );
 };
-
-export default RadioGroup;

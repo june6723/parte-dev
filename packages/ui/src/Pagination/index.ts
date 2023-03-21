@@ -1,1 +1,5 @@
-export { default } from './Pagination';
+export {
+  type PaginationButtonProps,
+  type PaginationProps,
+} from "./Pagination.types";
+export { Pagination } from "./Pagination";

@@ -1,8 +1,8 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes } from "react";
 
 export type TextInputProps = InputHTMLAttributes<HTMLInputElement> & {
-  leadingIcon?: React.ReactElement;
-  trailingIcon?: React.ReactElement;
+  leadingIcon?: React.ReactNode;
+  trailingIcon?: React.ReactNode;
   errorText?: string;
   label?: string;
   description?: string;

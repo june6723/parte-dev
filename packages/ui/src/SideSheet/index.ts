@@ -1,1 +1,2 @@
-export { default as SideSheet } from './SideSheet';
+export * from "./SideSheet.types";
+export { SideSheet } from "./SideSheet";

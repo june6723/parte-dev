@@ -1,8 +1,8 @@
-import Step from './Step/Step';
-import * as Styled from './Steps.styled';
-import { StepsProps } from './Steps.types';
+import { Step } from "./Step/Step";
+import * as Styled from "./Steps.styled";
+import { StepsProps } from "./Steps.types";
 
-const Steps = ({ stepList, currentStep }: StepsProps) => {
+export const Steps = ({ stepList, currentStep }: StepsProps) => {
   return (
     <Styled.Steps>
       {stepList.map((step, index) => (
@@ -16,5 +16,3 @@ const Steps = ({ stepList, currentStep }: StepsProps) => {
     </Styled.Steps>
   );
 };
-
-export default Steps;

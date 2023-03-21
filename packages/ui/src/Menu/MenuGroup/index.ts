@@ -1,1 +1,2 @@
-export { default as MenuGroup } from './MenuGroup';
+export { type MenuGroupProps } from "./MenuGroup.types";
+export { MenuGroup } from "./MenuGroup";

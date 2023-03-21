@@ -1,11 +1,11 @@
-import { cloneElement, useCallback, useEffect, useRef, useState } from 'react';
-import { delay, fromEvent, Subscription } from 'rxjs';
-import { Transition, TransitionStatus } from 'react-transition-group';
-import { Dimension, Position } from './Positioner.types';
-import * as Styled from './Positioner.styled';
-import usePrevious from '../hooks/usePrevious';
-import getPosition from './getPosition';
-import Portal from '../Portal/Portal';
+import { cloneElement, useCallback, useEffect, useRef, useState } from "react";
+import { delay, fromEvent, Subscription } from "rxjs";
+import { Transition, TransitionStatus } from "react-transition-group";
+import { Dimension, PositionerProps } from "./Positioner.types";
+import * as Styled from "./Positioner.styled";
+import usePrevious from "../hooks/usePrevious";
+import getPosition from "./getPosition";
+import { Portal } from "../Portal";
 
 const initialDimensions = {
   left: 0,
@@ -15,21 +15,13 @@ const initialDimensions = {
   transformOrigin: null,
 };
 
-type Props = {
-  children: React.ReactNode;
-  position: Position;
-  hideDelay: number;
-  showDelay: number;
-  targetEl: HTMLElement | null;
-};
-
-const Positioner = ({
+export const Positioner = ({
   position,
   hideDelay,
   showDelay,
   children,
   targetEl,
-}: Props) => {
+}: PositionerProps) => {
   const [isShownByTooltip, setIsShownByTooltip] = useState(false);
   const [isShownByTarget, setIsShownByTarget] = useState(false);
   const isShown = isShownByTooltip || isShownByTarget;
@@ -39,14 +31,14 @@ const Positioner = ({
   const mouseleaveSubscribe = useRef<Subscription>();
   const positionerRef = useRef<HTMLDivElement>(null);
   const previousDimensions = usePrevious(dimensions, initialDimensions);
-  const transitionState = useRef<TransitionStatus>('exited');
+  const transitionState = useRef<TransitionStatus>("exited");
 
   useEffect(() => {
     if (targetEl) {
-      const observerMouseOver$ = fromEvent(targetEl, 'mouseenter', {
+      const observerMouseOver$ = fromEvent(targetEl, "mouseenter", {
         capture: true,
       }).pipe(delay(showDelay));
-      const observerMouseOut$ = fromEvent(targetEl, 'mouseleave').pipe(
+      const observerMouseOut$ = fromEvent(targetEl, "mouseleave").pipe(
         delay(hideDelay)
       );
       const subMouseOver = observerMouseOver$.subscribe(() =>
@@ -69,7 +61,7 @@ const Positioner = ({
       const targetRect = targetEl.getBoundingClientRect();
 
       const hasEntered =
-        positionerRef.current.getAttribute('data-state') === 'entered';
+        positionerRef.current.getAttribute("data-state") === "entered";
 
       const viewportHeight = document.documentElement.clientHeight;
       const viewportWidth = document.documentElement.clientWidth;
@@ -121,7 +113,7 @@ const Positioner = ({
   );
 
   useEffect(() => {
-    if (transitionState.current === 'entered') {
+    if (transitionState.current === "entered") {
       latestAnimationFrame.current = requestAnimationFrame(() => {
         update(previousDimensions.height, previousDimensions.width);
       });
@@ -135,17 +127,17 @@ const Positioner = ({
   }, [previousDimensions.height, previousDimensions.width, update, children]);
 
   const handleEntering = () => {
-    transitionState.current = 'entering';
+    transitionState.current = "entering";
     update();
   };
 
   const handleEnter = () => {
-    transitionState.current = 'entered';
+    transitionState.current = "entered";
     update();
   };
 
   const handleExited = () => {
-    transitionState.current = 'exited';
+    transitionState.current = "exited";
     setDimensions(initialDimensions);
     mouseleaveSubscribe.current?.unsubscribe();
   };
@@ -154,7 +146,7 @@ const Positioner = ({
     if (positionerRef.current) {
       const observerMouseOut$ = fromEvent(
         positionerRef.current,
-        'mouseleave'
+        "mouseleave"
       ).pipe(delay(hideDelay));
 
       mouseleaveSubscribe.current = observerMouseOut$.subscribe(() => {
@@ -168,12 +160,12 @@ const Positioner = ({
       update();
     };
 
-    window.addEventListener('resize', reflowUpdate);
-    window.addEventListener('scroll', reflowUpdate);
+    window.addEventListener("resize", reflowUpdate);
+    window.addEventListener("scroll", reflowUpdate);
 
     return () => {
-      window.removeEventListener('resize', reflowUpdate);
-      window.removeEventListener('scroll', reflowUpdate);
+      window.removeEventListener("resize", reflowUpdate);
+      window.removeEventListener("scroll", reflowUpdate);
     };
   }, [update]);
 
@@ -211,5 +203,3 @@ const Positioner = ({
     </Transition>
   );
 };
-
-export default Positioner;

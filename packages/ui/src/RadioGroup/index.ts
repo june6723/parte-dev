@@ -1,1 +1,2 @@
-export { default as RadioGroup } from './RadioGroup';
+export * from "./RadioGroup.types";
+export { RadioGroup } from "./RadioGroup";

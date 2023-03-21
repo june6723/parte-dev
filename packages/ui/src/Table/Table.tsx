@@ -1,12 +1,11 @@
-import { memo } from 'react';
-import { Paragraph } from '../@foundations/Typography';
-import { Dropdown } from '../Dropdown';
-import { Box } from '../Layout';
-import { BoxProps } from '../Layout/Box.types';
-import { Menu } from '../Menu';
-import ActionFilterIcon from '../parte-icons/Icons/ActionFilterIcon';
-import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
-import * as Styled from './Table.styled';
+import { memo } from "react";
+import { Paragraph } from "../@foundations/Typography";
+import { Dropdown } from "../Dropdown";
+import { Box } from "../Layout";
+import { BoxProps } from "../Layout/Box.types";
+import { Menu } from "../Menu";
+import { ActionFilterIcon, InterfaceCaretDownIcon } from "../../../icons/src";
+import * as Styled from "./Table.styled";
 import {
   BodyProps,
   CellProps,
@@ -16,12 +15,12 @@ import {
   HeaderRowProps,
   RowProps,
   TableFilterBarProps,
-} from './Table.types';
+} from "./Table.types";
 
-const Table = ({
+export const Table = ({
   children,
-  display = 'flex',
-  flexDirection = 'column',
+  display = "flex",
+  flexDirection = "column",
   ...args
 }: BoxProps) => {
   return (
@@ -32,8 +31,8 @@ const Table = ({
 };
 const HeaderContainer = ({
   children,
-  display = 'flex',
-  flexDirection = 'column',
+  display = "flex",
+  flexDirection = "column",
   ...args
 }: HeaderContainerProps) => {
   return (
@@ -48,8 +47,8 @@ const HeaderContainer = ({
 };
 const Body = ({
   children,
-  display = 'flex',
-  flexDirection = 'column',
+  display = "flex",
+  flexDirection = "column",
   ...args
 }: BodyProps) => {
   return (
@@ -72,8 +71,8 @@ const Row = ({ children, onSelect, ...args }: RowProps) => {
 export const HeaderCell = memo(
   ({
     children,
-    display = 'flex',
-    alignItems = 'center',
+    display = "flex",
+    alignItems = "center",
     height = 48,
     padding = 8,
     ...args
@@ -95,8 +94,8 @@ export const HeaderCell = memo(
 export const Cell = memo(
   ({
     children,
-    display = 'flex',
-    alignItems = 'center',
+    display = "flex",
+    alignItems = "center",
     height = 64,
     padding = 8,
     ...args
@@ -118,7 +117,7 @@ export const Cell = memo(
 export const TableFilterBar = ({ onClear, countInfo }: TableFilterBarProps) => {
   const countText = countInfo
     ? `${countInfo.currentCount}/${countInfo.totalCount} fields shown. `
-    : '';
+    : "";
   return (
     <Styled.TableFilterBar>
       <ActionFilterIcon size={16} />
@@ -157,7 +156,7 @@ export const FilterHeader = <T, K>({
           display="flex"
           alignItems="center"
           gap={4}
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: "pointer" }}
         >
           {children ?? columnId}
           <InterfaceCaretDownIcon size={16} />
@@ -195,5 +194,3 @@ Table.HeaderRow = HeaderRow;
 Table.Row = Row;
 Table.HeaderCell = HeaderCell;
 Table.Cell = Cell;
-
-export default Table;

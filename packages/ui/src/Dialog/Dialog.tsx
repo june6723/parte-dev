@@ -1,12 +1,12 @@
-import { memo } from 'react';
-import { css } from 'styled-components';
-import Button from '../Button';
-import { IconButton } from '../IconButton';
-import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
-import * as Styled from './Dialog.styled';
-import { DialogProps, DialogSubComponent } from './Dialog.types';
+import { memo } from "react";
+import { css } from "styled-components";
+import { Button } from "../Button";
+import { IconButton } from "../IconButton";
+import { ActionCrossIcon } from "../../../icons/src";
+import * as Styled from "./Dialog.styled";
+import { DialogProps, DialogSubComponent } from "./Dialog.types";
 
-const Dialog = memo(
+export const Dialog = memo(
   ({
     close,
     onCancel,
@@ -19,9 +19,9 @@ const Dialog = memo(
     hasClose = true,
     hasFooter = true,
     hasHeader = true,
-    cancelLabel = '취소',
-    confirmLabel = '확인',
-    confirmVariant = 'primary',
+    cancelLabel = "취소",
+    confirmLabel = "확인",
+    confirmVariant = "primary",
     isConfirmDisabled = false,
     isConfirmLoading = false,
     minHeightContent = 80,
@@ -34,11 +34,11 @@ const Dialog = memo(
     const handleConfirm = () => (onConfirm ? onConfirm(close) : close());
 
     const renderChildren = () => {
-      if (typeof children === 'function') {
+      if (typeof children === "function") {
         return children({ close });
       }
 
-      if (typeof children === 'string') {
+      if (typeof children === "string") {
         return <span>{children}</span>;
       }
 
@@ -46,7 +46,7 @@ const Dialog = memo(
     };
 
     const renderNode = (node: DialogSubComponent) => {
-      if (typeof node === 'function') {
+      if (typeof node === "function") {
         return node({ close });
       }
 
@@ -144,5 +144,3 @@ const Dialog = memo(
     );
   }
 );
-
-export default Dialog;

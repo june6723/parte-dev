@@ -1,7 +1,7 @@
-import { HTMLAttributes } from 'react';
-import { BadgeColors } from '../@foundations/Badge/badge.types';
+import { HTMLAttributes } from "react";
+import { BadgeColors } from "../@foundations";
 
-type AvatarShape = 'CIRCLE' | 'SQUARE';
+export type AvatarShape = "CIRCLE" | "SQUARE";
 
 export type AvatarProps = HTMLAttributes<HTMLDivElement> & {
   avatarColor?: BadgeColors;

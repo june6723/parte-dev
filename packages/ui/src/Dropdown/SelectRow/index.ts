@@ -1,1 +1,8 @@
-export { default as SelectRow } from './SelectRow';
+export {
+  type SelectRowType,
+  type SelectRowElement,
+  type SelectRowSearch,
+  type SelectRowTitle,
+  type SelectRowProps,
+} from "./SelectRow.types";
+export { SelectRow } from "./SelectRow";

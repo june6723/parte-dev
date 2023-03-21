@@ -1,2 +1,2 @@
-export * as default from './Positioner';
-export * from './Positioner.types';
+export * from "./Positioner.types";
+export { Positioner } from "./Positioner";

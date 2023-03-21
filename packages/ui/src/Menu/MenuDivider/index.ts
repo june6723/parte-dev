@@ -1,1 +1,1 @@
-export { default as MenuDivider } from './MenuDivider';
+export { MenuDivider } from "./MenuDivider";

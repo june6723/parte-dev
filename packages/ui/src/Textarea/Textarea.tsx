@@ -1,9 +1,9 @@
-import { forwardRef, useMemo, useState } from 'react';
-import * as Styled from './Textarea.styled';
-import { TextAreaProps } from './Textarea.types';
-import { v4 as uuidv4 } from 'uuid';
+import { forwardRef, useMemo, useState } from "react";
+import * as Styled from "./Textarea.styled";
+import { TextAreaProps } from "./Textarea.types";
+import { v4 as uuidv4 } from "uuid";
 
-const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props: TextAreaProps, ref) => {
     const id = useMemo(() => uuidv4(), []);
     const {
@@ -27,7 +27,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             {required && <Styled.Required>*</Styled.Required>}
             <Styled.Label
               htmlFor={id}
-              title={required ? 'This field is required' : ''}
+              title={required ? "This field is required" : ""}
             >
               {label}
             </Styled.Label>
@@ -65,5 +65,3 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     );
   }
 );
-
-export default Textarea;

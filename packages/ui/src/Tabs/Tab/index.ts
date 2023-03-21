@@ -1,1 +1,2 @@
-export { default as Tab } from './Tab';
+export * from "./Tab.types";
+export { Tab } from "./Tab";

@@ -1,15 +1,13 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 import {
   EnterHandler,
   ExitHandler,
   TransitionStatus,
-} from 'react-transition-group/Transition';
-
-export type OverlayClose = () => void;
+} from "react-transition-group/Transition";
 
 export type OverlayChildrenProps = {
   state: TransitionStatus;
-  close: OverlayClose;
+  close: () => void;
 };
 export interface OverlayProps {
   children?:

@@ -1,26 +1,25 @@
-import badgeColors from '../../@foundations/Badge/badge';
-import { BadgeColors } from '../../@foundations/Badge/badge.types';
+import { BADGE_COLOR, BadgeColors } from "../../@foundations";
 
-export const getInitial = (name: string, fallback = '?') => {
+export const getInitial = (name: string, fallback = "?") => {
   if (!name) return fallback;
   return name
-    .replace(/\s+/, ' ')
-    .split(' ') // Repeated spaces results in empty strings
+    .replace(/\s+/, " ")
+    .split(" ") // Repeated spaces results in empty strings
     .slice(0, 2)
     .map((v) => v && v[0].toUpperCase()) // Watch out for empty strings
-    .join('');
+    .join("");
 };
 
-export const getColors = (avatarColor: BadgeColors = 'AUTO') => {
-  if (avatarColor === 'AUTO') {
-    const keys = Object.keys(badgeColors);
+export const getColors = (avatarColor: BadgeColors = "AUTO") => {
+  if (avatarColor === "AUTO") {
+    const keys = Object.keys(BADGE_COLOR);
     const colorKey = keys[
       Math.floor(Math.random() * keys.length)
-    ] as keyof typeof badgeColors;
+    ] as keyof typeof BADGE_COLOR;
 
-    return badgeColors[colorKey];
+    return BADGE_COLOR[colorKey];
   }
-  return badgeColors[avatarColor];
+  return BADGE_COLOR[avatarColor];
 };
 
 export const getAvatarInitialsFontSize = (size: number) => {

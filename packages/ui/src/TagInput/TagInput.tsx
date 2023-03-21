@@ -5,14 +5,14 @@ import {
   useMemo,
   useState,
   ChangeEvent,
-} from 'react';
-import * as Styled from './TagInput.styled';
-import { Box } from '../Layout';
-import { v4 as uuidv4 } from 'uuid';
-import { TagInputProps } from './TagInput.types';
-import Tag from './Tag/Tag';
+} from "react";
+import * as Styled from "./TagInput.styled";
+import { Box } from "../Layout";
+import { v4 as uuidv4 } from "uuid";
+import { TagInputProps } from "./TagInput.types";
+import { Tag } from "./Tag";
 
-const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
+export const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
   (
     {
       addOnBlur,
@@ -39,17 +39,17 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
     const [hover, setHover] = useState(false);
     const [focused, setFocused] = useState(false);
 
-    const [inputValue, setInputValue] = useState<string>('');
+    const [inputValue, setInputValue] = useState<string>("");
 
     const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-      if (!inputValue && e.key === 'Backspace') {
-        const temp = values.filter((tag) => tag.status !== 'disabled');
+      if (!inputValue && e.key === "Backspace") {
+        const temp = values.filter((tag) => tag.status !== "disabled");
         if (temp.length) {
           onRemove(temp[temp.length - 1].value);
         }
       }
 
-      if (e.key !== 'Enter') {
+      if (e.key !== "Enter") {
         return;
       }
 
@@ -62,13 +62,13 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
       }
 
       onAdd(inputValue);
-      setInputValue('');
+      setInputValue("");
     };
 
     const onBlur = (e: FocusEvent<HTMLInputElement>) => {
       if (addOnBlur && inputValue) {
         onAdd(inputValue);
-        setInputValue('');
+        setInputValue("");
       }
       setFocused(false);
       customOnblur?.(e);
@@ -81,7 +81,7 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
             {required && <Styled.Required>*</Styled.Required>}
             <Styled.Label
               htmlFor={id}
-              title={required ? 'This field is required' : ''}
+              title={required ? "This field is required" : ""}
             >
               {label}
             </Styled.Label>
@@ -111,9 +111,9 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
                 {values.map((tag) => (
                   <Tag
                     key={tag.value.toString()}
-                    tag={disabled ? { ...tag, status: 'disabled' } : tag}
+                    tag={disabled ? { ...tag, status: "disabled" } : tag}
                     onRemove={() => {
-                      if (tag.status === 'disabled') {
+                      if (tag.status === "disabled") {
                         return;
                       }
                       onRemove(tag.value);
@@ -150,5 +150,3 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
     );
   }
 );
-
-export default TagInput;

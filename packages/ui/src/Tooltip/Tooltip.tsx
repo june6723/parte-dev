@@ -1,19 +1,18 @@
-import { TooltipProps } from './Tooltip.types';
-import Positioner from '../Positioner/Positioner';
-import { Position } from '../Positioner';
-import * as Styled from './Tooltip.styled';
-import { Fragment, useState } from 'react';
+import { TooltipProps } from "./Tooltip.types";
+import * as Styled from "./Tooltip.styled";
+import { Fragment, useState } from "react";
+import { POSITION, Positioner } from "../Positioner";
 
-const Tooltip = ({
+export const Tooltip = ({
   children,
   content,
   showDelay = 100,
   hideDelay = 100,
-  position = Position.BOTTOM,
+  position = POSITION.BOTTOM,
   isShown = true,
 }: TooltipProps) => {
   const child: React.ReactNode =
-    typeof content === 'string' ? <p>{content}</p> : content;
+    typeof content === "string" ? <p>{content}</p> : content;
   const [targetRef, setTargetRef] = useState<HTMLDivElement | null>(null);
 
   return (
@@ -32,5 +31,3 @@ const Tooltip = ({
     </Fragment>
   );
 };
-
-export default Tooltip;

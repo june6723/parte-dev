@@ -1,10 +1,10 @@
-import { DropdownListProps } from './DropdownList.types';
-import * as Styled from './DropdownList.styled';
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { SelectRow } from '../SelectRow';
-import shallowEqual from 'shallowequal';
-import DropdownContext from '../DropdownContext';
-import { ARROW_VERTICAL_KEYS } from '../../constant';
+import { DropdownListProps } from "./DropdownList.types";
+import * as Styled from "./DropdownList.styled";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { SelectRow } from "../SelectRow";
+import shallowEqual from "shallowequal";
+import DropdownContext from "../DropdownContext";
+import { ARROW_VERTICAL_KEYS } from "../../constant";
 
 const isGroupOptions = <T,>(
   options: Option<T>[] | GroupOption<T>[]
@@ -12,21 +12,21 @@ const isGroupOptions = <T,>(
   if (options.length === 0) {
     return false;
   }
-  if ('groupName' in options[0]) {
+  if ("groupName" in options[0]) {
     return true;
   }
   return false;
 };
 
 const compareValue = (value1: unknown, value2: unknown) => {
-  if (typeof value1 === 'object' && typeof value2 === 'object') {
+  if (typeof value1 === "object" && typeof value2 === "object") {
     if (value1 === null) return value1 === value2;
     return shallowEqual(value1, value2);
   }
   return value1 === value2;
 };
 
-const DropdownList = <T,>({
+export const DropdownList = <T,>({
   options,
   value,
   onSelect,
@@ -36,7 +36,7 @@ const DropdownList = <T,>({
   isMulti,
   closeOnSelect,
 }: DropdownListProps<T>) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItems = useRef<HTMLDivElement[]>([]);
 
@@ -47,10 +47,10 @@ const DropdownList = <T,>({
     if (isMulti) {
       if (!value) {
         onChange?.([option]);
-      } else if (!('length' in value)) {
+      } else if (!("length" in value)) {
         // eslint-disable-next-line no-console
         console.warn(
-          'value props should be array type if you use isMulti option.'
+          "value props should be array type if you use isMulti option."
         );
       } else {
         const newValue = value.find(({ value: selectedValue }) =>
@@ -72,7 +72,7 @@ const DropdownList = <T,>({
 
   const handleKeyboard =
     (option: Option<T>) => (e: React.KeyboardEvent<HTMLDivElement>) => {
-      if (e.key === 'Enter') {
+      if (e.key === "Enter") {
         onSelectValue(option);
       }
     };
@@ -82,7 +82,7 @@ const DropdownList = <T,>({
     selectedOpt?: Option<T> | Option<T>[]
   ) => {
     if (!selectedOpt) return false;
-    if ('length' in selectedOpt) {
+    if ("length" in selectedOpt) {
       return selectedOpt.some(({ value }) =>
         compareValue(targetOpt.value, value)
       );
@@ -103,7 +103,7 @@ const DropdownList = <T,>({
   }, [inputValue, options]);
 
   useEffect(() => {
-    const root = document.getElementById('root');
+    const root = document.getElementById("root");
     const currentMenuRef = menuRef.current;
     if (!currentMenuRef || !root) return;
 
@@ -111,11 +111,11 @@ const DropdownList = <T,>({
       if (ARROW_VERTICAL_KEYS.includes(e.key)) e.preventDefault();
       if (e.isComposing) return;
 
-      menuItems.current = [
-        ...currentMenuRef.querySelectorAll(
-          '[role="selectItem"]:not([disabled])'
-        ),
-      ] as HTMLDivElement[];
+      const rows = currentMenuRef.querySelectorAll(
+        '[role="selectItem"]:not([disabled])'
+      );
+      menuItems.current = [];
+      rows.forEach((row) => menuItems.current.push(row as HTMLDivElement));
 
       const target = e.target as HTMLDivElement;
       if (target === currentMenuRef) {
@@ -126,10 +126,10 @@ const DropdownList = <T,>({
       const { length } = menuItems.current;
       let nextIndex = indexOfItem;
       switch (e.key) {
-        case 'ArrowDown':
+        case "ArrowDown":
           nextIndex = indexOfItem + 1 >= length ? 0 : indexOfItem + 1;
           break;
-        case 'ArrowUp':
+        case "ArrowUp":
           nextIndex = indexOfItem - 1 < 0 ? length - 1 : indexOfItem - 1;
           break;
         default:
@@ -137,9 +137,9 @@ const DropdownList = <T,>({
       }
       menuItems.current[nextIndex]?.focus();
     };
-    root.addEventListener('keydown', onKeyDown);
+    root.addEventListener("keydown", onKeyDown);
     return () => {
-      root.removeEventListener('keydown', onKeyDown);
+      root.removeEventListener("keydown", onKeyDown);
     };
   }, [filteredOptions]);
 
@@ -168,7 +168,7 @@ const DropdownList = <T,>({
           justifyContent="center"
           alignItems="center"
         >
-          {noOptionsText ?? 'No Options found'}
+          {noOptionsText ?? "No Options found"}
         </Styled.NoOption>
       )}
       {isGroupOptions(filteredOptions)
@@ -212,5 +212,3 @@ const DropdownList = <T,>({
     </Styled.List>
   );
 };
-
-export default DropdownList;

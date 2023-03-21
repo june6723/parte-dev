@@ -1,9 +1,9 @@
-import { memo } from 'react';
-import { css, keyframes } from 'styled-components';
-import { animationEasing } from '../constant';
-import Dialog from '../Dialog/Dialog';
-import { Overlay } from '../Overlay';
-import { DialogModalProps } from './DialogModal.types';
+import { memo } from "react";
+import { css, keyframes } from "styled-components";
+import { animationEasing } from "../constant";
+import { Dialog } from "../Dialog";
+import { Overlay } from "../Overlay";
+import { DialogModalProps } from "./DialogModal.types";
 
 const ANIMATION_DURATION = 200;
 const { acceleration, deceleration } = animationEasing;
@@ -29,7 +29,7 @@ const closeAnimation = keyframes`
   }
 `;
 
-const DialogModal = memo(function DialogModal({
+export const DialogModal = memo(function DialogModal({
   preventBodyScrolling = false,
   shouldAutoFocus = false,
   shouldCloseOnEsc = true,
@@ -37,8 +37,8 @@ const DialogModal = memo(function DialogModal({
   isShown = false,
   onCloseComplete,
   onOpenComplete,
-  sideOffset = '16px',
-  topOffset = '12vmin',
+  sideOffset = "16px",
+  topOffset = "12vmin",
   children,
   width = 560,
   ...dialogProps
@@ -75,15 +75,15 @@ const DialogModal = memo(function DialogModal({
             max-width: ${maxWidth};
             max-height: ${maxHeight};
             margin: ${topOffsetWithUnit} ${sideOffsetWithUnit};
-            &[data-state='entering'] {
+            &[data-state="entering"] {
               animation: ${openAnimation} ${ANIMATION_DURATION}ms
                 ${deceleration} both;
             }
-            &[data-state='entered'] {
+            &[data-state="entered"] {
               animation: ${openAnimation} ${ANIMATION_DURATION}ms
                 ${deceleration} both;
             }
-            &[data-state='exiting'] {
+            &[data-state="exiting"] {
               animation: ${closeAnimation} ${ANIMATION_DURATION}ms
                 ${acceleration} both;
             }
@@ -95,4 +95,3 @@ const DialogModal = memo(function DialogModal({
     </Overlay>
   );
 });
-export default DialogModal;

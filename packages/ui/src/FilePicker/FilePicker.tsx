@@ -1,14 +1,14 @@
-import { FilePickerProps } from './FilePicker.types';
-import * as Styled from './FilePicker.styled';
-import { ChangeEvent, useCallback, useRef, useState } from 'react';
-import { Box } from '../Layout';
-import { Caption, Paragraph } from '../@foundations/Typography';
-import TextInput from '../TextInput';
+import { FilePickerProps } from "./FilePicker.types";
+import * as Styled from "./FilePicker.styled";
+import { ChangeEvent, useCallback, useRef, useState } from "react";
+import { Box } from "../Layout";
+import { Caption, Paragraph } from "../@foundations/Typography";
+import TextInput from "../TextInput";
 
 const defaultButtonText = (files: File[]) => {
   const fileCount = files.length;
-  const action = fileCount === 0 ? 'Select' : 'Replace';
-  const fileLabel = fileCount > 1 ? 'files' : 'file';
+  const action = fileCount === 0 ? "Select" : "Replace";
+  const fileLabel = fileCount > 1 ? "files" : "file";
 
   return `${action} ${fileLabel}`;
 };
@@ -22,14 +22,14 @@ const getInputValue = (files: File[]) => {
     return `${files.length} files`;
   }
 
-  return '';
+  return "";
 };
 
-const FilePicker = ({
+export const FilePicker = ({
   label,
   description,
   required = false,
-  placeholder = 'Select the file here!',
+  placeholder = "Select the file here!",
   name,
   disabled = false,
   multiple,
@@ -50,7 +50,8 @@ const FilePicker = ({
   const handleFileChange = useCallback(
     (e: ChangeEvent) => {
       // Firefox returns the same array instance each time for some reason
-      const filesCopy = [...((e.target as HTMLInputElement)?.files ?? [])];
+      const files = (e.target as HTMLInputElement)?.files;
+      const filesCopy = files ? [...files] : [];
 
       setFiles(filesCopy);
       onChange?.(filesCopy);
@@ -83,7 +84,7 @@ const FilePicker = ({
           display="flex"
           flexDirection="column"
           gap={4}
-          style={{ marginBottom: '8px' }}
+          style={{ marginBottom: "8px" }}
         >
           {label && (
             <Styled.LabelWrapper>
@@ -94,7 +95,7 @@ const FilePicker = ({
               )}
               <Styled.Label
                 htmlFor={name}
-                title={required ? 'This field is required' : ''}
+                title={required ? "This field is required" : ""}
               >
                 {label}
               </Styled.Label>
@@ -110,11 +111,11 @@ const FilePicker = ({
       <Styled.Container>
         <input
           style={{
-            position: 'absolute',
+            position: "absolute",
             width: 0,
             height: 0,
             padding: 0,
-            overflow: 'hidden',
+            overflow: "hidden",
             border: 0,
           }}
           ref={fileInputRef}
@@ -152,5 +153,3 @@ const FilePicker = ({
     </Box>
   );
 };
-
-export default FilePicker;

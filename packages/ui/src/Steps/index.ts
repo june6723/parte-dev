@@ -1,1 +1,2 @@
-export { default as Steps } from './Steps';
+export * from "./Steps.types";
+export { Steps } from "./Steps";

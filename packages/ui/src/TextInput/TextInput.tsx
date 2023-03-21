@@ -1,9 +1,9 @@
-import { forwardRef, useMemo, useState } from 'react';
-import * as Styled from './TextInput.styled';
-import { TextInputProps } from './TextInput.types';
-import { v4 as uuidv4 } from 'uuid';
+import { forwardRef, useMemo, useState } from "react";
+import * as Styled from "./TextInput.styled";
+import { TextInputProps } from "./TextInput.types";
+import { v4 as uuidv4 } from "uuid";
 
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (props: TextInputProps, ref) => {
     const id = useMemo(() => uuidv4(), []);
     const {
@@ -29,7 +29,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             {required && <Styled.Required>*</Styled.Required>}
             <Styled.Label
               htmlFor={id}
-              title={required ? 'This field is required' : ''}
+              title={required ? "This field is required" : ""}
             >
               {label}
             </Styled.Label>
@@ -75,5 +75,3 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
   }
 );
-
-export default TextInput;

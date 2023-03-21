@@ -1,9 +1,8 @@
-import { ReactNode } from 'react';
-import { ThemeProvider as DefaultThemeProvider } from 'styled-components';
-import { Colors } from '../@foundations/Colors/colors.types';
-import { ColorTokenType } from '../common/theme/colorToken';
-import { cloneDeep } from 'lodash';
-import defaultTheme from './theme/index';
+import { ReactNode } from "react";
+import { ThemeProvider as DefaultThemeProvider } from "styled-components";
+import { Colors } from "../@foundations";
+import { ColorTokenType } from "../common/theme/colorToken";
+import defaultTheme from "./theme";
 
 type CustomTheme = Partial<ColorTokenType> & {
   colors?: Partial<Colors>;
@@ -25,7 +24,7 @@ export default function ThemeProvider({ children, theme = {} }: Props) {
 }
 
 const overrideTheme = (theme: CustomTheme) => {
-  let plate = cloneDeep(defaultTheme);
+  let plate = structuredClone(defaultTheme);
 
   const { colors: customColors = {}, ...customTokens } = theme;
 

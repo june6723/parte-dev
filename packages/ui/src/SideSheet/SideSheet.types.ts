@@ -1,11 +1,10 @@
-import { ReactNode } from 'react';
-import { TransitionStatus } from 'react-transition-group';
-import { OverlayClose } from '../Overlay/Overlay.types';
+import { ReactNode } from "react";
+import { TransitionStatus } from "react-transition-group";
 
-type SideSheetSubCompProps = { close: OverlayClose };
+export type SideSheetSubComponentProps = { close: () => void };
 export type SideSheetSubComponent = ({
   close,
-}: SideSheetSubCompProps) => ReactNode;
+}: SideSheetSubComponentProps) => ReactNode;
 
 export type SideSheetProps = {
   width?: number;

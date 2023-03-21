@@ -1,6 +1,5 @@
-import { SPACING } from '../@foundations/Spacing';
-import { Spacing } from '../@foundations/Spacing/spacing.types';
-import { BoxProps } from '../Layout/Box.types';
+import { SPACING, Spacing } from "../@foundations";
+import { BoxProps } from "../Layout/Box.types";
 
 export type TabsProps = BoxProps & {
   margin?: Spacing[keyof typeof SPACING];

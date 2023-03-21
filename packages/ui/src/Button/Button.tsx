@@ -1,7 +1,7 @@
-import { StyledButton } from './Button.styled';
-import { ButtonProps } from './Button.types';
+import { StyledButton } from "./Button.styled";
+import { ButtonProps } from "./Button.types";
 
-const Button = ({
+export const Button = ({
   children,
   leadingIcon,
   trailingIcon,
@@ -15,5 +15,3 @@ const Button = ({
     </StyledButton>
   );
 };
-
-export default Button;

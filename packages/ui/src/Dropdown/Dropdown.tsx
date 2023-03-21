@@ -4,23 +4,23 @@ import React, {
   useRef,
   useState,
   useCallback,
-} from 'react';
-import { createPortal } from 'react-dom';
-import { CSSProperties } from 'styled-components';
-import useOutsideClick from '../hooks/useOutsideClick';
-import * as Styled from './Dropdown.styled';
+} from "react";
+import { createPortal } from "react-dom";
+import { CSSProperties } from "styled-components";
+import useOutsideClick from "../hooks/useOutsideClick";
+import * as Styled from "./Dropdown.styled";
 import {
   DropdownMenuProps,
   DropdownProps,
   DropdownTriggerProps,
-} from './Dropdown.types';
-import DropdownContext from './DropdownContext';
+} from "./Dropdown.types";
+import DropdownContext from "./DropdownContext";
 import {
   getDropdownPosition,
   getDropdownStyle,
-} from './DropdownList/styleUtil';
+} from "./DropdownList/styleUtil";
 
-const Dropdown = ({ children, ...rest }: DropdownProps) => {
+export const Dropdown = ({ children, ...rest }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -35,7 +35,7 @@ const Dropdown = ({ children, ...rest }: DropdownProps) => {
 
   useOutsideClick([dropdownRef, menuRef], onClose);
   const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
-    if (e.key === 'Escape') onClose();
+    if (e.key === "Escape") onClose();
   };
 
   return (
@@ -110,11 +110,11 @@ const Menu = ({ children }: DropdownMenuProps) => {
         setMenuStyle(style);
       }
     };
-    window.addEventListener('scroll', handleScrollAndResize);
-    window.addEventListener('resize', handleScrollAndResize);
+    window.addEventListener("scroll", handleScrollAndResize);
+    window.addEventListener("resize", handleScrollAndResize);
     return () => {
-      window.removeEventListener('scroll', handleScrollAndResize);
-      window.removeEventListener('resize', handleScrollAndResize);
+      window.removeEventListener("scroll", handleScrollAndResize);
+      window.removeEventListener("resize", handleScrollAndResize);
     };
   }, [usePortal]);
 
@@ -127,7 +127,7 @@ const Menu = ({ children }: DropdownMenuProps) => {
     return null;
   }
 
-  const rootDom = document.getElementById('root');
+  const rootDom = document.getElementById("root");
   if (usePortal && rootDom) {
     return createPortal(
       <Styled.Menu
@@ -136,7 +136,7 @@ const Menu = ({ children }: DropdownMenuProps) => {
         style={menuStyle}
         usePortal
       >
-        {typeof children === 'function' ? children({ onClose }) : children}
+        {typeof children === "function" ? children({ onClose }) : children}
       </Styled.Menu>,
       rootDom
     );
@@ -149,12 +149,10 @@ const Menu = ({ children }: DropdownMenuProps) => {
       flexDirection="column"
       style={menuStyle}
     >
-      {typeof children === 'function' ? children({ onClose }) : children}
+      {typeof children === "function" ? children({ onClose }) : children}
     </Styled.Menu>
   );
 };
 
 Dropdown.Trigger = Trigger;
 Dropdown.Menu = Menu;
-
-export default Dropdown;

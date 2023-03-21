@@ -1,9 +1,9 @@
-import ActionTickIcon from '../../parte-icons/Icons/ActionTickIcon';
-import { MenuRow } from '../MenuRow';
-import * as Styled from './MenuOptionsGroup.styled';
-import { MenuOptionsGroupProps } from './MenuOptionsGroup.types';
+import { ActionTickIcon } from "../../../../icons/src";
+import { MenuRow } from "../MenuRow";
+import * as Styled from "./MenuOptionsGroup.styled";
+import { MenuOptionsGroupProps } from "./MenuOptionsGroup.types";
 
-export default function MenuOptionsGroup<T>({
+export function MenuOptionsGroup<T>({
   title,
   options,
   selected,

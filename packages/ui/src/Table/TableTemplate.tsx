@@ -6,12 +6,12 @@ import {
   getFacetedUniqueValues,
   getFilteredRowModel,
   useReactTable,
-} from '@tanstack/react-table';
-import { Fragment, useCallback, useState } from 'react';
-import Table, { TableFilterBar } from './Table';
-import { TableTemplateProps } from './Table.types';
+} from "@tanstack/react-table";
+import { Fragment, useCallback, useState } from "react";
+import { Table, TableFilterBar } from "./Table";
+import { TableTemplateProps } from "./Table.types";
 
-const TableTemplate = <T,>({
+export const TableTemplate = <T,>({
   data,
   columns,
   enableRowSelection,
@@ -88,5 +88,3 @@ const TableTemplate = <T,>({
     </Table>
   );
 };
-
-export default TableTemplate;

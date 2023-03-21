@@ -1,12 +1,10 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from "react";
 import {
   DefaultTheme,
   FlattenInterpolation,
   ThemedStyledProps,
-} from 'styled-components';
-import { Elevation } from '../@foundations/Elevation/elevation';
-import { SPACING } from '../@foundations/Spacing';
-import { Spacing } from '../@foundations/Spacing/spacing.types';
+} from "styled-components";
+import { SPACING, Spacing, ElevationToken } from "../@foundations";
 import {
   Display,
   FlexDirection,
@@ -15,7 +13,7 @@ import {
   AlignContent,
   FlexWrap,
   AlignSelf,
-} from '../constant';
+} from "../constant";
 
 export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   display?: Display;
@@ -59,7 +57,7 @@ export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   marginLeft?: number;
   marginRight?: number;
 
-  elevation?: Elevation;
+  elevation?: ElevationToken;
 
   /**
    * @uxpinignoreprop

@@ -1,8 +1,8 @@
-import ReactDOM from 'react-dom';
-import { ThemeProvider } from 'styled-components';
-import theme from '../common/theme';
-import { NotifyHandler, RemoveHandler } from './Toaster.types';
-import ToastManager from './ToastManager';
+import ReactDOM from "react-dom";
+import { ThemeProvider } from "styled-components";
+import theme from "../common/theme";
+import { NotifyHandler, RemoveHandler } from "./Toaster.types";
+import { ToastManager } from "./ToastManager";
 
 /**
  * The Toaster manages the interactions between
@@ -19,16 +19,16 @@ const getMajorVersion = (version: string) => {
   return majorVersion;
 };
 
-export default class Toaster implements IToaster {
+export class Toaster implements IToaster {
   notifyHandler: NotifyHandler = () => {};
   removeHandler: RemoveHandler = () => {};
 
   constructor() {
-    const canUseDom = Boolean(typeof window !== 'undefined' && window.document);
+    const canUseDom = Boolean(typeof window !== "undefined" && window.document);
     if (!canUseDom) return;
 
-    const container = document.createElement('div');
-    container.setAttribute('toaster-container', '');
+    const container = document.createElement("div");
+    container.setAttribute("toaster-container", "");
     document.body.appendChild(container);
 
     const toastManager = () => {
@@ -44,7 +44,7 @@ export default class Toaster implements IToaster {
 
     if (getMajorVersion(ReactDOM.version) >= 18) {
       try {
-        const { createRoot } = require('react-dom/client');
+        const { createRoot } = require("react-dom/client");
         const root = createRoot(container);
 
         root.render(toastManager());

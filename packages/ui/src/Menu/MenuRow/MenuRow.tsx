@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { MenuRowProps } from './MenuRow.types';
-import * as Styled from './MenuRow.styled';
-import { Checkbox } from '../../Checkbox';
+import { useState } from "react";
+import { MenuRowProps } from "./MenuRow.types";
+import * as Styled from "./MenuRow.styled";
+import { Checkbox } from "../../Checkbox";
 
-export default function MenuRow(props: MenuRowProps) {
+export function MenuRow(props: MenuRowProps) {
   const [hover, setHover] = useState(false);
   const {
-    type = 'element',
+    type = "element",
     onSelect,
     leadingIcon,
     children,
@@ -26,12 +26,12 @@ export default function MenuRow(props: MenuRowProps) {
       }}
       {...props}
     >
-      {type === 'element' && leadingIcon && (
+      {type === "element" && leadingIcon && (
         <Styled.Icon selected={selected} disabled={disabled}>
           {leadingIcon}
         </Styled.Icon>
       )}
-      {type === 'checkbox' && (
+      {type === "checkbox" && (
         <Styled.CheckboxContainer>
           <Checkbox checked={selected} />
         </Styled.CheckboxContainer>

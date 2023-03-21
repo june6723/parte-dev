@@ -1,1 +1,2 @@
-export { default as MenuRow } from './MenuRow';
+export { type MenuRowProps, type MenuRowType } from "./MenuRow.types";
+export { MenuRow } from "./MenuRow";

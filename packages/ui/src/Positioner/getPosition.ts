@@ -1,4 +1,4 @@
-import { Position } from '.';
+import { POSITION, Position } from "./Positioner.types";
 
 type Size = {
   height: number;
@@ -41,19 +41,19 @@ const makeRect = ({ height, width }: Size, { left, top }: Coordinate) => {
  */
 const flipHorizontal = (position: Position) => {
   switch (position) {
-    case Position.TOP_LEFT:
-      return Position.BOTTOM_LEFT;
-    case Position.TOP:
+    case POSITION.TOP_LEFT:
+      return POSITION.BOTTOM_LEFT;
+    case POSITION.TOP:
     default:
-      return Position.BOTTOM;
-    case Position.TOP_RIGHT:
-      return Position.BOTTOM_RIGHT;
-    case Position.BOTTOM_LEFT:
-      return Position.TOP_LEFT;
-    case Position.BOTTOM:
-      return Position.TOP;
-    case Position.BOTTOM_RIGHT:
-      return Position.TOP_RIGHT;
+      return POSITION.BOTTOM;
+    case POSITION.TOP_RIGHT:
+      return POSITION.BOTTOM_RIGHT;
+    case POSITION.BOTTOM_LEFT:
+      return POSITION.TOP_LEFT;
+    case POSITION.BOTTOM:
+      return POSITION.TOP;
+    case POSITION.BOTTOM_RIGHT:
+      return POSITION.TOP_RIGHT;
   }
 };
 
@@ -64,9 +64,9 @@ const flipHorizontal = (position: Position) => {
  */
 const isAlignedOnTop = (position: Position) => {
   switch (position) {
-    case Position.TOP_LEFT:
-    case Position.TOP:
-    case Position.TOP_RIGHT:
+    case POSITION.TOP_LEFT:
+    case POSITION.TOP:
+    case POSITION.TOP_RIGHT:
       return true;
     default:
       return false;
@@ -80,8 +80,8 @@ const isAlignedOnTop = (position: Position) => {
  */
 const isAlignedHorizontal = (position: Position) => {
   switch (position) {
-    case Position.LEFT:
-    case Position.RIGHT:
+    case POSITION.LEFT:
+    case POSITION.RIGHT:
       return true;
     default:
       return false;
@@ -160,12 +160,12 @@ const getTransformOrigin = ({
 }) => {
   const centerY = Math.round(targetCenter - rect.top);
 
-  if (position === Position.LEFT) {
+  if (position === POSITION.LEFT) {
     /* Syntax: x-offset | y-offset */
     return `${dimensions.width}px ${centerY}px`;
   }
 
-  if (position === Position.RIGHT) {
+  if (position === POSITION.RIGHT) {
     /* Syntax: x-offset | y-offset */
     return `0px ${centerY}px`;
   }
@@ -290,14 +290,14 @@ function getPosition({
   // Handle left and right positions
   if (isHorizontal) {
     const leftRect = getRect({
-      position: Position.LEFT,
+      position: POSITION.LEFT,
       dimensions,
       targetRect,
       targetOffset,
     });
 
     const rightRect = getRect({
-      position: Position.RIGHT,
+      position: POSITION.RIGHT,
       dimensions,
       targetRect,
       targetOffset,
@@ -310,7 +310,7 @@ function getPosition({
       viewportOffset
     );
 
-    if (position === Position.LEFT) {
+    if (position === POSITION.LEFT) {
       if (fitsOnLeft) {
         return {
           position,
@@ -320,13 +320,13 @@ function getPosition({
 
       if (fitsOnRight) {
         return {
-          position: Position.RIGHT,
+          position: POSITION.RIGHT,
           rect: rightRect,
         };
       }
     }
 
-    if (position === Position.RIGHT) {
+    if (position === POSITION.RIGHT) {
       if (fitsOnRight) {
         return {
           position,
@@ -336,7 +336,7 @@ function getPosition({
 
       if (fitsOnLeft) {
         return {
-          position: Position.LEFT,
+          position: POSITION.LEFT,
           rect: leftRect,
         };
       }
@@ -350,13 +350,13 @@ function getPosition({
 
     if (spaceRight < spaceLeft) {
       return {
-        position: Position.RIGHT,
+        position: POSITION.RIGHT,
         rect: rightRect,
       };
     }
 
     return {
-      position: Position.LEFT,
+      position: POSITION.LEFT,
       rect: leftRect,
     };
   }
@@ -488,43 +488,43 @@ function getRect({
     targetRect.top + targetRect.height / 2 - dimensions.height / 2;
 
   switch (position) {
-    case Position.LEFT:
+    case POSITION.LEFT:
       return makeRect(dimensions, {
         left: targetRect.left - dimensions.width - targetOffset,
         top: alignedLeftRightY,
       });
-    case Position.RIGHT:
+    case POSITION.RIGHT:
       return makeRect(dimensions, {
         left: targetRect.right + targetOffset,
         top: alignedLeftRightY,
       });
-    case Position.TOP:
+    case POSITION.TOP:
       return makeRect(dimensions, {
         left: leftRect,
         top: alignedTopY,
       });
-    case Position.TOP_LEFT:
+    case POSITION.TOP_LEFT:
       return makeRect(dimensions, {
         left: targetRect.left,
         top: alignedTopY,
       });
-    case Position.TOP_RIGHT:
+    case POSITION.TOP_RIGHT:
       return makeRect(dimensions, {
         left: alignedRightX,
         top: alignedTopY,
       });
     default:
-    case Position.BOTTOM:
+    case POSITION.BOTTOM:
       return makeRect(dimensions, {
         left: leftRect,
         top: alignedBottomY,
       });
-    case Position.BOTTOM_LEFT:
+    case POSITION.BOTTOM_LEFT:
       return makeRect(dimensions, {
         left: targetRect.left,
         top: alignedBottomY,
       });
-    case Position.BOTTOM_RIGHT:
+    case POSITION.BOTTOM_RIGHT:
       return makeRect(dimensions, {
         left: alignedRightX,
         top: alignedBottomY,

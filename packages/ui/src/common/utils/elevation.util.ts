@@ -1,7 +1,6 @@
-import { ELEVATION } from '../../@foundations/Elevation';
-import { Elevation } from '../../@foundations/Elevation/elevation';
+import { ELEVATION, ElevationToken } from "../../@foundations";
 
-export const getElevation = (elevation: Elevation) => {
+export const getElevation = (elevation: ElevationToken) => {
   switch (elevation) {
     case 0:
       return ELEVATION.elevation0;

@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import * as Styled from './Checkbox.styled';
-import { CheckboxProps } from './Checkbox.types';
-import { Box } from '../Layout';
-import ActionSmallTickIcon from '../parte-icons/Icons/ActionSmallTickIcon';
+import { useState } from "react";
+import * as Styled from "./Checkbox.styled";
+import { CheckboxProps } from "./Checkbox.types";
+import { Box } from "../Layout";
+import { ActionSmallTickIcon } from "../../../icons/src";
 
-const Checkbox = ({
+export const Checkbox = ({
   label,
   disabled = false,
   checked = false,
@@ -60,5 +60,3 @@ const Checkbox = ({
     </Styled.Container>
   );
 };
-
-export default Checkbox;

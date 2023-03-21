@@ -1,15 +1,15 @@
-import ActionTickIcon from '../../parte-icons/Icons/ActionTickIcon';
-import * as Styled from './Step.styled';
-import { StepProps, StepStatus } from './Step.types';
+import { ActionTickIcon } from "../../../../icons/src";
+import * as Styled from "./Step.styled";
+import { StepProps, StepStatus } from "./Step.types";
 
-function Step({ label, currentStep, stepIndex }: StepProps) {
+export function Step({ label, currentStep, stepIndex }: StepProps) {
   const stepValidator = (): StepStatus => {
     if (stepIndex === currentStep) {
-      return 'inProgress';
+      return "inProgress";
     } else if (stepIndex < currentStep) {
-      return 'complete';
+      return "complete";
     }
-    return 'notStarted';
+    return "notStarted";
   };
 
   const stepStatus = stepValidator();
@@ -17,7 +17,7 @@ function Step({ label, currentStep, stepIndex }: StepProps) {
   return (
     <Styled.Container gap={8}>
       <Styled.Icon status={stepStatus}>
-        {stepStatus === 'complete' ? (
+        {stepStatus === "complete" ? (
           <ActionTickIcon size={8} color="success" />
         ) : (
           stepIndex
@@ -27,5 +27,3 @@ function Step({ label, currentStep, stepIndex }: StepProps) {
     </Styled.Container>
   );
 }
-
-export default Step;

@@ -3,10 +3,10 @@ import {
   SelectRowSearch,
   SelectRowTitle,
   SelectRowElement,
-} from './SelectRow.types';
-import * as Styled from './SelectRow.styled';
-import { forwardRef, useEffect, useRef } from 'react';
-import ActionSearchIcon from '../../parte-icons/Icons/ActionSearchIcon';
+} from "./SelectRow.types";
+import * as Styled from "./SelectRow.styled";
+import { forwardRef, useEffect, useRef } from "react";
+import { ActionSearchIcon } from "../../../../icons/src";
 
 const SearchRow = forwardRef<HTMLDivElement, SelectRowSearch>((props, ref) => {
   const { inputValue, onChange } = props;
@@ -21,7 +21,7 @@ const SearchRow = forwardRef<HTMLDivElement, SelectRowSearch>((props, ref) => {
       <Styled.SearchInput
         variant="search"
         role="selectItemSearchInput"
-        placeholder={props.placeholder ?? 'Search'}
+        placeholder={props.placeholder ?? "Search"}
         value={inputValue}
         autoFocus
         onChange={onChange}
@@ -56,7 +56,7 @@ const ElementRow = forwardRef<HTMLDivElement, SelectRowElement>(
 
     useEffect(() => {
       if (rowRef.current && ref !== null) {
-        if (typeof ref === 'function') {
+        if (typeof ref === "function") {
           ref(rowRef.current);
           return;
         }
@@ -86,15 +86,15 @@ const ElementRow = forwardRef<HTMLDivElement, SelectRowElement>(
     );
   }
 );
-const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>((props, ref) => {
-  if (props.variant === 'search') {
-    return <SearchRow ref={ref} {...props} />;
-  }
-  if (props.variant === 'title') {
-    return <TitleRow ref={ref} {...props} />;
-  }
+export const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>(
+  (props, ref) => {
+    if (props.variant === "search") {
+      return <SearchRow ref={ref} {...props} />;
+    }
+    if (props.variant === "title") {
+      return <TitleRow ref={ref} {...props} />;
+    }
 
-  return <ElementRow ref={ref} {...props} />;
-});
-
-export default SelectRow;
+    return <ElementRow ref={ref} {...props} />;
+  }
+);

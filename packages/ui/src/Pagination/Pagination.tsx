@@ -1,22 +1,16 @@
-import { useCallback } from 'react';
-import * as Styled from './Pagination.styled';
-import { PaginationProps } from './Pagination.types';
-import InterfaceChevronLeftIcon from '../parte-icons/Icons/InterfaceChevronLeftIcon';
-import InterfaceChevronRightIcon from '../parte-icons/Icons/InterfaceChevronRightIcon';
-import { Box } from '../Layout';
-import { Heading } from '../@foundations/Typography';
-import { IconButton } from '../IconButton';
+import { useCallback } from "react";
+import * as Styled from "./Pagination.styled";
+import { PaginationProps, PaginationButtonProps } from "./Pagination.types";
+import {
+  InterfaceChevronLeftIcon,
+  InterfaceChevronRightIcon,
+} from "../../../icons/src";
+import { Box } from "../Layout";
+import { Heading } from "../@foundations";
+import { IconButton } from "../IconButton";
 
 const MAX_HANDLES_TO_SHOW = 7;
-const ELLIPSIS_TEXT = '...';
-
-type Props = {
-  page: number | string;
-  isSelected: boolean;
-  disabled?: boolean;
-  onPageChange: (page: number) => void;
-  children: React.ReactNode;
-};
+const ELLIPSIS_TEXT = "...";
 
 const PaginationButton = ({
   isSelected,
@@ -24,11 +18,11 @@ const PaginationButton = ({
   disabled = false,
   page,
   children,
-}: Props) => {
-  const isEllipsis = typeof page === 'string' && page === ELLIPSIS_TEXT;
+}: PaginationButtonProps) => {
+  const isEllipsis = typeof page === "string" && page === ELLIPSIS_TEXT;
 
   const onClick = useCallback(() => {
-    if (typeof page === 'number') {
+    if (typeof page === "number") {
       onPageChange(page);
     }
   }, [page, onPageChange]);
@@ -97,7 +91,11 @@ const getPaginationButtonContent = ({
   ];
 };
 
-const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
+export const Pagination = ({
+  page,
+  totalPages,
+  onPageChange,
+}: PaginationProps) => {
   const prevDisabled = page === 1 || totalPages === 0;
   const nextDisabled = page === totalPages || totalPages === 0;
 
@@ -108,7 +106,7 @@ const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
         Icon={
           <InterfaceChevronLeftIcon
             size={12}
-            color={prevDisabled ? 'disabled' : 'muted'}
+            color={prevDisabled ? "disabled" : "muted"}
           />
         }
         size={32}
@@ -139,7 +137,7 @@ const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
         Icon={
           <InterfaceChevronRightIcon
             size={12}
-            color={nextDisabled ? 'disabled' : 'muted'}
+            color={nextDisabled ? "disabled" : "muted"}
           />
         }
         size={32}
@@ -154,5 +152,3 @@ const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
     </Box>
   );
 };
-
-export default Pagination;

@@ -1,8 +1,4 @@
-import { RefObject, ReactNode } from 'react';
-
-export type GroupOption = {
-  title: string;
-};
+import { RefObject, ReactNode } from "react";
 
 export interface DropdownProps {
   children?: ReactNode;

@@ -1,22 +1,21 @@
-import { ReactNode } from 'react';
-import { TransitionStatus } from 'react-transition-group';
+import { ReactNode } from "react";
+import { TransitionStatus } from "react-transition-group";
 import {
   DefaultTheme,
   FlattenInterpolation,
   ThemedStyledProps,
-} from 'styled-components';
-import { Elevation } from '../@foundations/Elevation/elevation';
-import { ButtonVariant } from '../Button/Button.types';
-import { BoxProps } from '../Layout/Box.types';
+} from "styled-components";
+import { ElevationToken } from "../@foundations";
+import { ButtonVariant } from "../Button/Button.types";
+import { BoxProps } from "../Layout/Box.types";
 
-type DialogSubCompProps = { close: () => void };
+export type DialogSubCompProps = { close: () => void };
 export type DialogSubComponent = ({ close }: DialogSubCompProps) => ReactNode;
-type CloseHandler = (close: () => void) => void;
 
 export interface DialogProps {
   close: () => void;
-  onCancel?: CloseHandler;
-  onConfirm?: CloseHandler;
+  onCancel?: (close: () => void) => void;
+  onConfirm?: (close: () => void) => void;
   children?: ReactNode | DialogSubComponent;
   hasHeader?: boolean;
   header?: DialogSubComponent;
@@ -32,7 +31,7 @@ export interface DialogProps {
   isConfirmLoading?: boolean;
   minHeightContent?: number;
   width?: number;
-  elevation?: Elevation;
+  elevation?: ElevationToken;
   state?: TransitionStatus;
   overrideStyles?: FlattenInterpolation<
     ThemedStyledProps<BoxProps, DefaultTheme>
