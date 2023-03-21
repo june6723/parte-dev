@@ -1,3 +1,4 @@
+import { Option } from "../../Dropdown";
 export type MenuOptionsGroupProps<T> = {
   title?: string;
   options: Option<T>[];

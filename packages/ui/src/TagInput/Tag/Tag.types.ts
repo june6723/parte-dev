@@ -1,4 +1,6 @@
-export type TagStatus = 'normal' | 'disabled' | 'error';
+import { Option } from "../../Dropdown";
+
+export type TagStatus = "normal" | "disabled" | "error";
 
 export type TagOption = Option<string> & {
   status: TagStatus;

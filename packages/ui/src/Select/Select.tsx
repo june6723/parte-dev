@@ -39,6 +39,7 @@ import { SelectComponents } from "react-select/dist/declarations/src/components"
 import { Box } from "../Layout";
 import { Caption, Heading, Paragraph } from "../@foundations/Typography";
 import { Spinner } from "../Spinner";
+import { Option } from "../Dropdown";
 
 export const Control = ({
   children,
@@ -111,7 +112,7 @@ export const DropdownIndicator = ({
   );
 };
 
-export const Option = ({
+export const OptionComponent = ({
   children,
   ...props
 }: OptionProps<Option<unknown>, boolean>) => {
@@ -216,7 +217,7 @@ export function Select<T>(props: SelectProps<T>) {
       ClearIndicator: ClearIndicator as ComponentType<
         ClearIndicatorProps<Option<T>, boolean, GroupBase<Option<T>>>
       >,
-      Option: Option as ComponentType<
+      Option: OptionComponent as ComponentType<
         OptionProps<Option<T>, boolean, GroupBase<Option<T>>>
       >,
       LoadingMessage,

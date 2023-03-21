@@ -1,3 +1,4 @@
+import * as React from "react";
 /** 공용 */
 export * from "./@foundations";
 export { default as theme } from "./common/theme";

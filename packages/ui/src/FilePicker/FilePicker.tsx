@@ -3,7 +3,7 @@ import * as Styled from "./FilePicker.styled";
 import { ChangeEvent, useCallback, useRef, useState } from "react";
 import { Box } from "../Layout";
 import { Caption, Paragraph } from "../@foundations/Typography";
-import TextInput from "../TextInput";
+import { TextInput } from "../TextInput";
 
 const defaultButtonText = (files: File[]) => {
   const fileCount = files.length;

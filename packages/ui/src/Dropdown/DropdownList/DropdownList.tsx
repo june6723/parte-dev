@@ -1,4 +1,4 @@
-import { DropdownListProps } from "./DropdownList.types";
+import { DropdownListProps, GroupOption, Option } from "./DropdownList.types";
 import * as Styled from "./DropdownList.styled";
 import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { SelectRow } from "../SelectRow";

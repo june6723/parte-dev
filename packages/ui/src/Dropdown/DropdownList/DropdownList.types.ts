@@ -1,3 +1,15 @@
+export type Option<T> = {
+  label: string;
+  value: T;
+  disabled?: boolean;
+  icon?: React.ReactNode;
+};
+
+export type GroupOption<T> = {
+  groupName: string;
+  options: Option<T>[];
+};
+
 export type DropdownListBaseProps<T> = {
   options: Option<T>[] | GroupOption<T>[];
   value?: Option<T>;

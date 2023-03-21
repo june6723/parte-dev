@@ -2,13 +2,12 @@ import {
   FocusEvent,
   forwardRef,
   KeyboardEvent,
-  useMemo,
   useState,
   ChangeEvent,
+  useId,
 } from "react";
 import * as Styled from "./TagInput.styled";
 import { Box } from "../Layout";
-import { v4 as uuidv4 } from "uuid";
 import { TagInputProps } from "./TagInput.types";
 import { Tag } from "./Tag";
 
@@ -25,7 +24,7 @@ export const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
     }: TagInputProps,
     ref
   ) => {
-    const id = useMemo(() => uuidv4(), []);
+    const id = useId();
     const {
       label,
       description,

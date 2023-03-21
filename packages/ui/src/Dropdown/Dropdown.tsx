@@ -13,6 +13,7 @@ import {
   DropdownMenuProps,
   DropdownProps,
   DropdownTriggerProps,
+  DropdownPosition,
 } from "./Dropdown.types";
 import DropdownContext from "./DropdownContext";
 import {

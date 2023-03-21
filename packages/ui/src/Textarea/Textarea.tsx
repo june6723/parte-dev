@@ -1,11 +1,10 @@
-import { forwardRef, useMemo, useState } from "react";
+import { forwardRef, useId, useState } from "react";
 import * as Styled from "./Textarea.styled";
 import { TextAreaProps } from "./Textarea.types";
-import { v4 as uuidv4 } from "uuid";
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props: TextAreaProps, ref) => {
-    const id = useMemo(() => uuidv4(), []);
+    const id = useId();
     const {
       label,
       description,

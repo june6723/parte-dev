@@ -1,5 +1,6 @@
-import { GroupBase, Props, OptionsOrGroups } from 'react-select';
-import { AsyncPaginateProps } from 'react-select-async-paginate';
+import { GroupBase, Props, OptionsOrGroups } from "react-select";
+import { AsyncPaginateProps } from "react-select-async-paginate";
+import { GroupOption, Option } from "../Dropdown";
 
 export type SelectAdditional =
   | {
@@ -18,12 +19,12 @@ type CommonSelectProps = {
 
 export type StaticSelectProps<T> = CommonSelectProps &
   Props<Option<T>, boolean, GroupBase<Option<T>>> & {
-    type: 'static';
+    type: "static";
   };
 
 export type AsyncSelectProps<T> = CommonSelectProps &
   AsyncPaginateProps<Option<T>, GroupBase<Option<T>>, any, boolean> & {
-    type: 'async';
+    type: "async";
     defaultValue?: Option<T>;
     options?: OptionsOrGroups<Option<T>, GroupOption<T>>;
   };

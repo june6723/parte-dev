@@ -1,5 +1,8 @@
 import { RefObject, ReactNode } from "react";
+import { DROPDOWN_POSITION } from "../constant";
 
+export type DropdownPosition =
+  (typeof DROPDOWN_POSITION)[keyof typeof DROPDOWN_POSITION];
 export interface DropdownProps {
   children?: ReactNode;
   usePortal?: boolean;

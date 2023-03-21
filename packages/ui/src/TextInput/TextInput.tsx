@@ -1,11 +1,10 @@
-import { forwardRef, useMemo, useState } from "react";
+import { forwardRef, useId, useState } from "react";
 import * as Styled from "./TextInput.styled";
 import { TextInputProps } from "./TextInput.types";
-import { v4 as uuidv4 } from "uuid";
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (props: TextInputProps, ref) => {
-    const id = useMemo(() => uuidv4(), []);
+    const id = useId();
     const {
       label,
       description,

@@ -1,1 +1,1 @@
-export { default as SidebarTab } from './SidebarTab';
+export { SidebarTab } from "./SidebarTab";
