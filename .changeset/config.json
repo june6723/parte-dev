@@ -2,9 +2,10 @@
   "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
+  "baseBranch": "main",
   "fixed": [],
   "linked": [],
   "access": "public",
   "updateInternalDependencies": "patch",
-  "ignore": ["@parte-dev/storybook", "@parte-dev/docs"]
+  "ignore": ["@parte-dev/storybook"]
 }
