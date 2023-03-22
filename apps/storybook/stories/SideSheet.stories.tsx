@@ -1,4 +1,11 @@
-import { Box, Button, SideSheet, SideSheetProps, Tab, Tabs } from "@parte/ui";
+import {
+  Box,
+  Button,
+  SideSheet,
+  SideSheetProps,
+  Tab,
+  Tabs,
+} from "@parte-dev/ui";
 import { Story, Meta } from "@storybook/react";
 import { useState } from "react";
 import styled, { css } from "styled-components";

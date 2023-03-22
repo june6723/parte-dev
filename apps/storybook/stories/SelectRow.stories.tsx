@@ -1,4 +1,4 @@
-import { SelectRow, SelectRowProps } from "@parte/ui";
+import { SelectRow, SelectRowProps } from "@parte-dev/ui";
 import { Story, Meta } from "@storybook/react";
 
 export default {

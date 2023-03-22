@@ -1,4 +1,4 @@
-import { Steps, StepsProps } from "@parte/ui";
+import { Steps, StepsProps } from "@parte-dev/ui";
 import { Story, Meta } from "@storybook/react";
 
 export default {

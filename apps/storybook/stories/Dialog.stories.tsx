@@ -1,4 +1,4 @@
-import { Dialog, DialogProps } from "@parte/ui";
+import { Dialog, DialogProps } from "@parte-dev/ui";
 import { Story, Meta } from "@storybook/react";
 
 export default {

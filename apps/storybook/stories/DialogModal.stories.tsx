@@ -1,4 +1,10 @@
-import { Box, Button, DialogModal, DialogModalProps, theme } from "@parte/ui";
+import {
+  Box,
+  Button,
+  DialogModal,
+  DialogModalProps,
+  theme,
+} from "@parte-dev/ui";
 import { Story, Meta } from "@storybook/react";
 import { useState } from "react";
 import { css } from "styled-components";

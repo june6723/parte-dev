@@ -5,9 +5,14 @@ import {
   OptionsOrGroups,
   SingleValue,
 } from "react-select";
-import { Select, AsyncSelectProps, SelectAdditional, Option } from "@parte/ui";
+import {
+  Select,
+  AsyncSelectProps,
+  SelectAdditional,
+  Option,
+} from "@parte-dev/ui";
 import { useState } from "react";
-import { ActionAddIcon } from "@parte/icons";
+import { ActionAddIcon } from "@parte-dev/icons";
 
 export default {
   title: "Components/Select/AsyncSelect",
