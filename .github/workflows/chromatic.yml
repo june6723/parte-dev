@@ -18,8 +18,11 @@ jobs:
       - name: install
         run: pnpm install
 
+      - name: build
+        run: pnpm build
+
       - name: Push Storybook to Chromatic
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: "build"
+          workingDir: "apps/storybook"
