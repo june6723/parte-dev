@@ -16,6 +16,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
+    "@emotion/cache": "^11.10.5",
+    "@emotion/react": "^11.10.6",
     "@parte-dev/tsconfig": "workspace:*",
     "@tanstack/react-table": "^8.7.9",
     "@types/react": "^18.0.28",
@@ -42,6 +44,7 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-select": "^5.7.1",
     "styled-components": "^5.3.9"
   }
 }
