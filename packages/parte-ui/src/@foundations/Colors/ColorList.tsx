@@ -15,7 +15,7 @@ const CATEGORY = [
   "Chart",
 ];
 
-function ColorList() {
+export function ColorList() {
   const colorMap = Object.entries(COLORS).reduce((acc, [key, value]) => {
     const colorCategory = key[0];
     if (acc[colorCategory]) {
@@ -47,8 +47,6 @@ function ColorList() {
     </Container>
   );
 }
-
-export default ColorList;
 
 const Container = styled.div`
   display: flex;

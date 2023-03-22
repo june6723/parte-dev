@@ -1,85 +1,89 @@
-import { Meta, Story } from '@storybook/react';
-import { useState } from 'react';
-import Button from '../Button';
-import ActionChatIcon from '../parte-icons/Icons/ActionChatIcon';
-import Dropdown from './Dropdown';
-import { DropdownProps } from './Dropdown.types';
-import { DropdownList } from './DropdownList';
+import { ActionChatIcon } from "@parte/icons";
+import {
+  Button,
+  Dropdown,
+  DropdownList,
+  DropdownProps,
+  GroupOption,
+  Option,
+} from "@parte/ui";
+import { Meta, Story } from "@storybook/react";
+import { useState } from "react";
 
 const OPTIONS: Option<string>[] = [
   {
-    label: 'label1',
-    value: 'value1',
+    label: "label1",
+    value: "value1",
   },
   {
-    label: 'label2',
-    value: 'value2',
+    label: "label2",
+    value: "value2",
     disabled: true,
     icon: <ActionChatIcon size={12} />,
   },
   {
-    label: 'label3',
-    value: 'value3',
+    label: "label3",
+    value: "value3",
     icon: <ActionChatIcon size={12} />,
   },
 ];
 const GROUP_OPTIONS: GroupOption<string>[] = [
   {
-    groupName: '선민호',
+    groupName: "선민호",
     options: [
       {
-        label: 'label1-1',
-        value: 'value1-1',
+        label: "label1-1",
+        value: "value1-1",
       },
       {
-        label: 'label1-2',
-        value: 'value1-2',
+        label: "label1-2",
+        value: "value1-2",
         disabled: true,
         icon: <ActionChatIcon size={12} />,
       },
       {
-        label: 'label1-3',
-        value: 'value1-3',
+        label: "label1-3",
+        value: "value1-3",
         icon: <ActionChatIcon size={12} />,
       },
     ],
   },
   {
-    groupName: '서솔민',
+    groupName: "서솔민",
     options: [
       {
-        label: 'label2-1',
-        value: 'value2-1',
+        label: "label2-1",
+        value: "value2-1",
       },
       {
-        label: 'label2-2',
-        value: 'value2-2',
+        label: "label2-2",
+        value: "value2-2",
         disabled: true,
         icon: <ActionChatIcon size={12} />,
       },
       {
-        label: 'label2-3',
-        value: 'value2-3',
+        label: "label2-3",
+        value: "value2-3",
         icon: <ActionChatIcon size={12} />,
       },
     ],
   },
   {
-    groupName: '김대균',
+    groupName: "김대균",
     options: [
       {
-        label: 'label3-1',
-        value: 'value3-1',
+        label: "label3-1",
+        value: "value3-1",
       },
       {
-        label: 'label3-2',
-        value: 'value3-2',
+        label: "label3-2",
+        value: "value3-2",
         disabled: true,
         icon: <ActionChatIcon size={12} />,
       },
       {
-        label: 'label3-3',
-        value: 'value3-3',
+        label: "label3-3",
+        value: "value3-3",
         icon: <ActionChatIcon size={12} />,
       },
     ],
@@ -87,18 +91,18 @@ const GROUP_OPTIONS: GroupOption<string>[] = [
 ];
 
 export default {
-  title: 'Components/Dropdown',
+  title: "Components/Dropdown",
   component: Dropdown,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
 const Template: Story<DropdownProps> = ({ ...args }) => {
   const [selectValue, setSelectValue] = useState<Option<string>>({
-    label: 'label3',
-    value: 'value3',
+    label: "label3",
+    value: "value3",
   });
 
   const onSelect = (value: Option<string>) => {
@@ -107,11 +111,11 @@ const Template: Story<DropdownProps> = ({ ...args }) => {
   return (
     <div
       style={{
-        height: '1600px',
-        overflowY: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '30px',
+        height: "1600px",
+        overflowY: "auto",
+        display: "flex",
+        flexDirection: "column",
+        padding: "30px",
         // alignItems: 'flex-end',
       }}
     >
@@ -144,16 +148,16 @@ const GroupedTemplate: Story<DropdownProps & { isSearchable?: boolean }> = ({
   return (
     <div
       style={{
-        height: '1600px',
-        overflowY: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '30px',
+        height: "1600px",
+        overflowY: "auto",
+        display: "flex",
+        flexDirection: "column",
+        padding: "30px",
       }}
     >
       <Dropdown {...args}>
         <Dropdown.Trigger>
-          <Button variant="primary">{selectValue?.label ?? 'empty'}</Button>
+          <Button variant="primary">{selectValue?.label ?? "empty"}</Button>
         </Dropdown.Trigger>
         <Dropdown.Menu>
           <DropdownList
@@ -176,17 +180,17 @@ const MultiTemplate: Story<DropdownProps & { closeOnSelect: boolean }> = ({
   return (
     <div
       style={{
-        height: '1600px',
-        overflowY: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '30px',
+        height: "1600px",
+        overflowY: "auto",
+        display: "flex",
+        flexDirection: "column",
+        padding: "30px",
       }}
     >
       <Dropdown {...args}>
         <Dropdown.Trigger>
           <Button variant="primary">
-            {selectValue?.map(({ label }) => label).join(', ') || 'empty'}
+            {selectValue?.map(({ label }) => label).join(", ") || "empty"}
           </Button>
         </Dropdown.Trigger>
         <Dropdown.Menu>
@@ -195,7 +199,7 @@ const MultiTemplate: Story<DropdownProps & { closeOnSelect: boolean }> = ({
             value={selectValue}
             isMulti
             onChange={(options) => {
-              if ('length' in options) {
+              if ("length" in options) {
                 setSelectValue(options);
               }
             }}

@@ -1,15 +1,15 @@
-import { Meta, Story } from '@storybook/react';
-import { Paragraph } from '../@foundations/Typography';
-import { Box } from '../Layout';
-import Link from './Link';
-import { LinkProps } from './Link.types';
+import { Meta, Story } from "@storybook/react";
+import { Paragraph } from "../../../packages/parte-ui/src/@foundations/Typography";
+import { Box } from "../../../packages/parte-ui/src/Layout";
+import { Link } from "../../../packages/parte-ui/src/Link/Link";
+import { LinkProps } from "../../../packages/parte-ui/src/Link/Link.types";
 
 export default {
-  title: 'Components/Buttons/Link',
+  title: "Components/Buttons/Link",
   component: Link,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -35,20 +35,20 @@ const LinkInParagraphTemplate: Story<LinkProps> = ({ children, ...args }) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'Link',
-  href: 'https://google.com',
-  target: '_blank',
+  children: "Link",
+  href: "https://google.com",
+  target: "_blank",
 };
 export const LinkInParagraph = LinkInParagraphTemplate.bind({});
 LinkInParagraph.args = {
-  children: 'Link',
-  href: 'https://google.com',
-  target: '_blank',
+  children: "Link",
+  href: "https://google.com",
+  target: "_blank",
 };
 export const Disabled = Template.bind({});
 Disabled.args = {
-  children: 'Disabled Link',
-  href: 'https://google.com',
+  children: "Disabled Link",
+  href: "https://google.com",
   disabled: true,
-  target: '_blank',
+  target: "_blank",
 };

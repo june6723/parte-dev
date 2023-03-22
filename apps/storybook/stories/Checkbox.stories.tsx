@@ -1,15 +1,13 @@
-import Checkbox from './Checkbox';
-import { Story, Meta } from '@storybook/react';
-import { CheckboxProps } from './Checkbox.types';
-import { Box } from '../Layout';
-import { useState } from 'react';
+import { Box, Checkbox, CheckboxProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useState } from "react";
 
 export default {
-  title: 'Components/Controls/Checkbox',
+  title: "Components/Controls/Checkbox",
   component: Checkbox,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -30,17 +28,17 @@ const Template: Story<CheckboxProps> = ({ ...args }) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  label: 'TEST',
+  label: "TEST",
 };
 
 export const Indeterminate = Template.bind({});
 Indeterminate.args = {
-  label: 'TEST',
+  label: "TEST",
   indeterminate: true,
 };
 
 export const Checked = Template.bind({});
 Checked.args = {
-  label: 'TEST',
+  label: "TEST",
   checked: true,
 };

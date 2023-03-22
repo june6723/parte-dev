@@ -1,12 +1,12 @@
-import { Heading, Paragraph, Caption, Code } from './index';
-import { Story, Meta } from '@storybook/react';
-import { Box } from '../../Layout';
+import { Heading, Paragraph, Caption, Code } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { Box } from "../../../packages/parte-ui/src/Layout";
 
 export default {
-  title: 'Foundation/Typography',
+  title: "Foundation/Typography",
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -51,7 +51,7 @@ const CustomStyle: Story = () => {
           Heading 900
         </Heading>
         <Heading size={800}>Heading 800</Heading>
-        <Heading size={700} overrideStyles={{ backgroundColor: 'red' }}>
+        <Heading size={700} overrideStyles={{ backgroundColor: "red" }}>
           Heading 700
         </Heading>
         <Heading size={600}>Heading 600</Heading>

@@ -1,23 +1,26 @@
-import { Meta, Story } from '@storybook/react';
-import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
-import { useState } from 'react';
-import styled from 'styled-components';
-import { Heading } from '../@foundations/Typography';
-import { Avatar } from '../Avatar';
-import { Badge } from '../Badge';
-import { Checkbox } from '../Checkbox';
-import { Dropdown } from '../Dropdown';
-import { IconButton } from '../IconButton';
-import { Link } from '../Link';
-import { Menu } from '../Menu';
-import ActionChatIcon from '../parte-icons/Icons/ActionChatIcon';
-import InterfaceMoreIcon from '../parte-icons/Icons/InterfaceMoreIcon';
-import toaster from '../Toaster';
-import { Toggle } from '../Toggle';
-import { Cell, FilterHeader, HeaderCell } from './Table';
-import TableTemplate from './TableTemplate';
+import { Meta, Story } from "@storybook/react";
+import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
+import { useState } from "react";
+import styled from "styled-components";
+import { Heading } from "../../../packages/parte-ui/src/@foundations/Typography";
+import { Avatar } from "../../../packages/parte-ui/src/Avatar";
+import { Badge } from "../../../packages/parte-ui/src/Badge";
+import { Checkbox } from "../../../packages/parte-ui/src/Checkbox";
+import { Dropdown } from "../../../packages/parte-ui/src/Dropdown";
+import { IconButton } from "../../../packages/parte-ui/src/IconButton";
+import { Link } from "../../../packages/parte-ui/src/Link";
+import { Menu } from "../../../packages/parte-ui/src/Menu";
+import { ActionChatIcon, InterfaceMoreIcon } from "@parte/icons";
+import { toaster } from "../../../packages/parte-ui/src/Toaster";
+import { Toggle } from "../../../packages/parte-ui/src/Toggle";
+import {
+  Cell,
+  FilterHeader,
+  HeaderCell,
+} from "../../../packages/parte-ui/src/Table/Table";
+import { TableTemplate } from "../../../packages/parte-ui/src/Table/TableTemplate";
 
-type UserType = 'user' | 'manager' | 'admin';
+type UserType = "user" | "manager" | "admin";
 type User = {
   name: string;
   type: UserType;
@@ -28,38 +31,38 @@ type User = {
 
 const MOCK_USERS: User[] = [
   {
-    name: 'Minho sun',
-    type: 'admin',
-    position: 'ERP PM',
-    bio: 'google.com',
+    name: "Minho sun",
+    type: "admin",
+    position: "ERP PM",
+    bio: "google.com",
     active: true,
   },
   {
-    name: 'Solmin seo',
-    type: 'manager',
-    position: 'HR Hero',
-    bio: 'github.com',
+    name: "Solmin seo",
+    type: "manager",
+    position: "HR Hero",
+    bio: "github.com",
     active: false,
   },
   {
-    name: 'Dorothy',
-    type: 'user',
-    position: 'mukbang youtuber',
-    bio: 'naver.com',
+    name: "Dorothy",
+    type: "user",
+    position: "mukbang youtuber",
+    bio: "naver.com",
     active: true,
   },
   {
-    name: 'June kim',
-    type: 'user',
-    position: 'Backend developer',
-    bio: 'mysql.com',
+    name: "June kim",
+    type: "user",
+    position: "Backend developer",
+    bio: "mysql.com",
     active: false,
   },
   {
-    name: 'Changhee seo',
-    type: 'manager',
-    position: 'One manned design',
-    bio: 'figma.com',
+    name: "Changhee seo",
+    type: "manager",
+    position: "One manned design",
+    bio: "figma.com",
     active: true,
   },
 ];
@@ -71,23 +74,23 @@ const initialDatas = generateUsers(1);
 const manyDatas = generateUsers(5);
 
 export default {
-  title: 'Components/Table',
+  title: "Components/Table",
   component: TableTemplate,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
 const getBadgeColorByType = (type: UserType) => {
   switch (type) {
-    case 'admin':
-      return 'BLUE';
-    case 'manager':
-      return 'GREEN';
-    case 'user':
+    case "admin":
+      return "BLUE";
+    case "manager":
+      return "GREEN";
+    case "user":
     default:
-      return 'ORANGE';
+      return "ORANGE";
   }
 };
 
@@ -95,7 +98,7 @@ const columnHelper = createColumnHelper<User>();
 
 const defaultColumns = [
   columnHelper.display({
-    id: 'select',
+    id: "select",
     header: ({ table }) => (
       <HeaderCell width={50}>
         <Checkbox
@@ -118,7 +121,7 @@ const defaultColumns = [
       );
     },
   }),
-  columnHelper.accessor('name', {
+  columnHelper.accessor("name", {
     header: () => <HeaderCell flex="2">Name</HeaderCell>,
     cell: (info) => {
       const { type, name } = info.row.original;
@@ -131,7 +134,7 @@ const defaultColumns = [
       );
     },
   }),
-  columnHelper.accessor('type', {
+  columnHelper.accessor("type", {
     header: ({ column }) => {
       return (
         <HeaderCell flex="1">
@@ -151,11 +154,11 @@ const defaultColumns = [
       );
     },
   }),
-  columnHelper.accessor('position', {
+  columnHelper.accessor("position", {
     header: () => <HeaderCell flex="2">Position</HeaderCell>,
     cell: (info) => <Cell flex="2">{info.getValue()}</Cell>,
   }),
-  columnHelper.accessor('bio', {
+  columnHelper.accessor("bio", {
     header: () => <HeaderCell flex="1">Bio</HeaderCell>,
     cell: (info) => {
       const link = info.getValue();
@@ -169,7 +172,7 @@ const defaultColumns = [
     },
   }),
   columnHelper.display({
-    id: 'icon',
+    id: "icon",
     header: () => (
       <HeaderCell width={60} display="flex" justifyContent="center">
         Icon
@@ -179,8 +182,8 @@ const defaultColumns = [
       const { name } = info.row.original;
       const onClick = () => {
         toaster.notify({
-          title: '채팅',
-          status: 'info',
+          title: "채팅",
+          status: "info",
           description: `${name}와 채팅하기`,
         });
       };
@@ -196,7 +199,7 @@ const defaultColumns = [
       );
     },
   }),
-  columnHelper.accessor('active', {
+  columnHelper.accessor("active", {
     header: () => <HeaderCell width={50}>Active</HeaderCell>,
     cell: (info) => {
       const [on, setOn] = useState(!!info.getValue());
@@ -208,7 +211,7 @@ const defaultColumns = [
     },
   }),
   columnHelper.display({
-    id: 'menu',
+    id: "menu",
     header: () => <HeaderCell width={50} />,
     cell: () => {
       return (

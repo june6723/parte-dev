@@ -1,13 +1,12 @@
-import ColorList from './ColorList';
-
-import { Story, Meta } from '@storybook/react';
+import { ColorList } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: 'Foundation/Color',
+  title: "Foundation/Color",
   component: ColorList,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 

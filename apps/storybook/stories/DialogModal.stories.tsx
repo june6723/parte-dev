@@ -1,18 +1,14 @@
-import { Story, Meta } from '@storybook/react';
-import { useState } from 'react';
-import { css } from 'styled-components';
-import Button from '../Button';
-import theme from '../common/theme';
-import { Box } from '../Layout';
-import DialogModal from './DialogModal';
-import { DialogModalProps } from './DialogModal.types';
+import { Box, Button, DialogModal, DialogModalProps, theme } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useState } from "react";
+import { css } from "styled-components";
 
 export default {
-  title: 'Components/Overlays/DialogModal',
+  title: "Components/Overlays/DialogModal",
   component: DialogModal,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -30,12 +26,12 @@ const Template: Story<DialogModalProps> = ({ children, ...args }) => {
   const [open, setOpen] = useState(false);
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto' }}
+      style={{ display: "flex", flexDirection: "column", overflowY: "auto" }}
     >
       <Button variant="primary" onClick={() => setOpen(true)}>
         Open DialogModal
       </Button>
-      <div style={{ width: '100%', height: '1000px' }} />
+      <div style={{ width: "100%", height: "1000px" }} />
       <DialogModal
         onCloseComplete={() => setOpen(false)}
         title="Dialog Title"
@@ -50,7 +46,7 @@ const Template: Story<DialogModalProps> = ({ children, ...args }) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  confirmVariant: 'primary',
+  confirmVariant: "primary",
   children: `Used for multiline pieces of content. Lorem ipsum dolor sit amet, ex
   lucilius hendrerit vim, tempor scaevola iudicabit ei ius, te eum illud
   impetus antiopam. Eu wisi commune volutpat pro, usu at alii magna
@@ -58,15 +54,15 @@ Default.args = {
 };
 export const Error = Template.bind({});
 Error.args = {
-  confirmVariant: 'error',
-  confirmLabel: '오류',
+  confirmVariant: "error",
+  confirmLabel: "오류",
   width: 320,
   minHeightContent: 40,
-  title: '에러 케이스',
+  title: "에러 케이스",
   children: `오류가 발생했습니다`,
 };
 export const ScrollContent = Template.bind({});
 ScrollContent.args = {
-  confirmVariant: 'primary',
+  confirmVariant: "primary",
   children: <ScrollBox />,
 };

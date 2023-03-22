@@ -1,14 +1,12 @@
-import Box from './Box';
-import { Story, Meta } from '@storybook/react';
-import { BoxProps } from './Box.types';
-import Button from '../Button';
+import { Story, Meta } from "@storybook/react";
+import { BoxProps, Box, Button } from "@parte/ui";
 
 export default {
-  title: 'Components/Layout/Box',
+  title: "Components/Layout/Box",
   component: Box,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -27,21 +25,21 @@ const Template: Story<BoxProps> = ({ flexDirection, ...args }) => {
 
 export const FlexBox = Template.bind({});
 FlexBox.args = {
-  display: 'flex',
-  flexDirection: 'column',
+  display: "flex",
+  flexDirection: "column",
   gap: 10,
   children: Content,
   marginTop: 32,
-  backgroundColor: 'purple',
+  backgroundColor: "purple",
   width: 600,
-  justifyContent: 'space-between',
+  justifyContent: "space-between",
 };
 
 export const GridBox = Template.bind({});
 GridBox.args = {
-  display: 'grid',
+  display: "grid",
   gap: 10,
-  backgroundColor: 'green',
-  gridTemplateColumns: 'repeat(2, 1fr)',
+  backgroundColor: "green",
+  gridTemplateColumns: "repeat(2, 1fr)",
   children: Content,
 };

@@ -1,16 +1,16 @@
-import RadioGroup from './RadioGroup';
-import { Story, Meta } from '@storybook/react';
-import Radio from '../Radio/Radio';
-import { RadioGroupProps } from './RadioGroup.types';
-import { ChangeEvent, useState } from 'react';
-import { Box } from '../Layout';
+import { RadioGroup } from "../../../packages/parte-ui/src/RadioGroup/RadioGroup";
+import { Story, Meta } from "@storybook/react";
+import { Radio } from "../../../packages/parte-ui/src/Radio/Radio";
+import { RadioGroupProps } from "../../../packages/parte-ui/src/RadioGroup/RadioGroup.types";
+import { ChangeEvent, useState } from "react";
+import { Box } from "../../../packages/parte-ui/src/Layout";
 
 export default {
-  title: 'Components/Controls/RadioGroup',
+  title: "Components/Controls/RadioGroup",
   component: RadioGroup,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -19,7 +19,7 @@ const Template: Story<RadioGroupProps> = ({ ...args }) => {
     setSelectedValue(e.target.value);
   };
 
-  const [selectedValue, setSelectedValue] = useState<string>('TEST');
+  const [selectedValue, setSelectedValue] = useState<string>("TEST");
 
   return (
     <RadioGroup {...args} onChange={onChange} value={selectedValue}>
@@ -36,12 +36,12 @@ const Template: Story<RadioGroupProps> = ({ ...args }) => {
 export const Default = Template.bind({});
 
 Default.args = {
-  name: 'my',
+  name: "my",
 };
 
 export const Disabled = Template.bind({});
 
 Disabled.args = {
-  name: 'my',
+  name: "my",
   disabled: true,
 };
