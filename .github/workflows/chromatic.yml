@@ -13,8 +13,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - uses: pnpm/action-setup@v2
+
       - name: install
-        run: yarn install --frozen-lockfile
+        run: pnpm install
 
       - name: Push Storybook to Chromatic
         uses: chromaui/action@v1
