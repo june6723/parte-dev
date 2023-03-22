@@ -1,17 +1,18 @@
-import Menu from './Menu';
-import { Story, Meta } from '@storybook/react';
-import { MenuProps } from './Menu.types';
-import ActionChatIcon from '../parte-icons/Icons/ActionChatIcon';
-import ActionRefreshIcon from '../parte-icons/Icons/ActionRefreshIcon';
-import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
-import { useState } from 'react';
+import {
+  ActionChatIcon,
+  ActionCrossIcon,
+  ActionRefreshIcon,
+} from "@parte/icons";
+import { Menu, MenuProps, Option } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useState } from "react";
 
 export default {
-  title: 'Components/Menu',
+  title: "Components/Menu",
   component: Menu,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -34,12 +35,12 @@ const Template: Story<MenuProps> = () => {
 };
 
 const menuOptions: Option<string>[] = [
-  { label: 'label1', value: 'label1' },
-  { label: 'label2', value: 'label2' },
-  { label: 'label3', value: 'label3' },
+  { label: "label1", value: "label1" },
+  { label: "label2", value: "label2" },
+  { label: "label3", value: "label3" },
 ];
 const SelectableTemplate: Story<MenuProps> = () => {
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState("");
   return (
     <Menu>
       <Menu.Group title="TITLE">

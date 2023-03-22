@@ -1,6 +1,5 @@
-import { DropdownList } from "../../../packages/parte-ui/src/Dropdown/DropdownList/DropdownList";
+import { DropdownList, DropdownListProps } from "@parte/ui";
 import { Story, Meta } from "@storybook/react";
-import { DropdownListProps } from "../../../packages/parte-ui/src/Dropdown/DropdownList/DropdownList.types";
 
 export default {
   title: "Components/Dropdown/DropdownList",

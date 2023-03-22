@@ -1,31 +1,30 @@
-import MenuRow from './MenuRow';
-import { Story, Meta } from '@storybook/react';
-import { MenuRowProps } from './MenuRow.types';
-import ActionChatIcon from '../../parte-icons/Icons/ActionChatIcon';
-import { useState } from 'react';
+import { ActionChatIcon } from "@parte/icons";
+import { Menu, MenuRowProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useState } from "react";
 
 export default {
-  title: 'Components/Menu/MenuRow',
-  component: MenuRow,
+  title: "Components/Menu/MenuRow",
+  component: Menu.Row,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
 const Template: Story<MenuRowProps> = ({ ...args }) => {
-  return <MenuRow {...args}>Menu Row</MenuRow>;
+  return <Menu.Row {...args}>Menu Row</Menu.Row>;
 };
 const ClickableTemplate: Story<MenuRowProps> = ({ ...args }) => {
   const [selected, setSeleted] = useState(false);
   return (
-    <MenuRow
+    <Menu.Row
       selected={selected}
       onSelect={() => setSeleted((prev) => !prev)}
       {...args}
     >
       Menu Row
-    </MenuRow>
+    </Menu.Row>
   );
 };
 export const Default = Template.bind({});
@@ -38,11 +37,11 @@ Icon.args = {
 };
 export const Title = Template.bind({});
 Title.args = {
-  type: 'title',
+  type: "title",
 };
 export const Checkbox = Template.bind({});
 Checkbox.args = {
-  type: 'checkbox',
+  type: "checkbox",
   selected: false,
 };
 export const Clickable = ClickableTemplate.bind({});

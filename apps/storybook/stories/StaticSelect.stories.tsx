@@ -1,16 +1,15 @@
-import { Story, Meta } from '@storybook/react';
-import { MultiValue, SingleValue } from 'react-select';
-import Select from './Select';
-import { StaticSelectProps } from './Select.types';
-import { useState } from 'react';
-import ActionAddIcon from '../parte-icons/Icons/ActionAddIcon';
+import { Story, Meta } from "@storybook/react";
+import { MultiValue, SingleValue } from "react-select";
+import { useState } from "react";
+import { Option, Select, StaticSelectProps } from "@parte/ui";
+import { ActionAddIcon } from "@parte/icons";
 
 export default {
-  title: 'Components/Select/StaticSelect',
+  title: "Components/Select/StaticSelect",
   component: Select,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -29,15 +28,16 @@ const Template: Story<
     isDisabled?: boolean;
   }
 > = ({ isMulti, ...args }) => {
-  const [selectedValue, setSelectedValue] =
-    useState<Option<string>[] | SingleValue<Option<string>> | undefined>();
+  const [selectedValue, setSelectedValue] = useState<
+    Option<string>[] | SingleValue<Option<string>> | undefined
+  >();
 
   const onChange = (
     option: MultiValue<Option<string>> | SingleValue<Option<string>>
   ) => {
-    if (typeof option === 'object' && !!option) {
+    if (typeof option === "object" && !!option) {
       if (isMulti) {
-        if ('length' in option) {
+        if ("length" in option) {
           const selected = option as Option<string>[];
 
           setSelectedValue(selected);
@@ -83,8 +83,8 @@ OpenMenuDefault.args = {
 
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
-  label: 'TEST',
-  description: '이것은 설명입니다.',
+  label: "TEST",
+  description: "이것은 설명입니다.",
   required: true,
 };
 
@@ -98,7 +98,7 @@ Multi.args = {
 export const Error = Template.bind({});
 Error.args = {
   isError: true,
-  errorText: 'this is error',
+  errorText: "this is error",
 };
 
 export const Disabled = Template.bind({});
@@ -120,15 +120,16 @@ const GroupTemplate: Story<
     }));
   })();
 
-  const [selectedValue, setSelectedValue] =
-    useState<Option<string>[] | SingleValue<Option<string>> | undefined>();
+  const [selectedValue, setSelectedValue] = useState<
+    Option<string>[] | SingleValue<Option<string>> | undefined
+  >();
 
   const onChange = (
     option: MultiValue<Option<string>> | SingleValue<Option<string>>
   ) => {
-    if (typeof option === 'object' && !!option) {
+    if (typeof option === "object" && !!option) {
       if (isMulti) {
-        if ('length' in option) {
+        if ("length" in option) {
           const selected = option as Option<string>[];
 
           setSelectedValue(selected);

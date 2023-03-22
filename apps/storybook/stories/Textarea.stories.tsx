@@ -1,13 +1,12 @@
-import Textarea from './Textarea';
-import { Story, Meta } from '@storybook/react';
-import { TextAreaProps } from './Textarea.types';
+import { Textarea, TextAreaProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: 'Components/Forms/Textarea',
+  title: "Components/Forms/Textarea",
   component: Textarea,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -25,22 +24,22 @@ Disabled.args = {
 
 export const Error = Template.bind({});
 Error.args = {
-  errorText: 'error!!',
+  errorText: "error!!",
 };
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-  label: 'Label',
+  label: "Label",
 };
 
 export const WithLabelRequired = Template.bind({});
 WithLabelRequired.args = {
-  label: 'Label',
+  label: "Label",
   required: true,
 };
 
 export const WithDescription = Template.bind({});
 WithDescription.args = {
-  label: 'Label',
-  description: 'Description',
+  label: "Label",
+  description: "Description",
 };

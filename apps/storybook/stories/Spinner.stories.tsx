@@ -1,14 +1,12 @@
-import { Story, Meta } from '@storybook/react';
-import { SpinnerProps } from './Spinner.types';
-import Spinner from './Spinner';
-import { Box } from '../Layout';
+import { Box, Spinner, SpinnerProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: 'Components/Spinner',
+  title: "Components/Spinner",
   component: Spinner,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 

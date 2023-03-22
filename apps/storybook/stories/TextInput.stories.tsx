@@ -1,16 +1,17 @@
-import TextInput from './TextInput';
-import { Story, Meta } from '@storybook/react';
-import { TextInputProps } from './TextInput.types';
-import ActionSearchIcon from '../parte-icons/Icons/ActionSearchIcon';
-import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
-import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
+import {
+  ActionCrossIcon,
+  ActionSearchIcon,
+  InterfaceCaretDownIcon,
+} from "@parte/icons";
+import { TextInput, TextInputProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: 'Components/Forms/TextInput',
+  title: "Components/Forms/TextInput",
   component: TextInput,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -30,7 +31,7 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   leadingIcon: <ActionSearchIcon size={12} color="muted" />,
   trailingIcon: (
-    <div style={{ display: 'flex', gap: '8px' }}>
+    <div style={{ display: "flex", gap: "8px" }}>
       <ActionCrossIcon size={12} color="muted" />
       <InterfaceCaretDownIcon size={12} color="muted" />
     </div>
@@ -41,24 +42,24 @@ Disabled.args = {
 export const Error = Template.bind({});
 Error.args = {
   trailingIcon: <ActionSearchIcon size={12} color="muted" />,
-  errorText: 'error!!',
+  errorText: "error!!",
 };
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-  label: 'Label',
+  label: "Label",
 };
 
 export const WithLabelRequired = Template.bind({});
 WithLabelRequired.args = {
-  label: 'Label',
+  label: "Label",
   required: true,
 };
 
 export const WithDescription = Template.bind({});
 WithDescription.args = {
-  label: 'Label',
-  description: 'Description',
+  label: "Label",
+  description: "Description",
 };
 
 export const WithTrailingIcon = Template.bind({});
@@ -74,7 +75,7 @@ WithManyIcon.args = {
     // 여기는 어떻게 하는게 좋을까요
     // 오른쪽에 2개의 아이콘이 들어갈 경우가있는데, 두 아이콘 사이의 간격은 항상 8px 이어야합니다.
     // 그런데 사용측에서 직접 8px을 넘겨줘야해요
-    <div style={{ display: 'flex', gap: '8px' }}>
+    <div style={{ display: "flex", gap: "8px" }}>
       <ActionCrossIcon size={12} color="muted" />
       <InterfaceCaretDownIcon size={12} color="muted" />
     </div>

@@ -1,14 +1,13 @@
-import Toggle from './Toggle';
-import { useState } from 'react';
-import { Story, Meta } from '@storybook/react';
-import { ToggleProps } from './Toggle.types';
+import { useState } from "react";
+import { Story, Meta } from "@storybook/react";
+import { Toggle, ToggleProps } from "@parte/ui";
 
 export default {
-  title: 'Components/Controls/Toggle',
+  title: "Components/Controls/Toggle",
   component: Toggle,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -27,11 +26,11 @@ Enabled.args = {
 
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
-  label: 'Toggle Button',
+  label: "Toggle Button",
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: 'Toggle Button',
+  label: "Toggle Button",
   disabled: true,
 };

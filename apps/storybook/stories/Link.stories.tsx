@@ -1,8 +1,5 @@
+import { Box, Link, LinkProps, Paragraph } from "@parte/ui";
 import { Meta, Story } from "@storybook/react";
-import { Paragraph } from "../../../packages/parte-ui/src/@foundations/Typography";
-import { Box } from "../../../packages/parte-ui/src/Layout";
-import { Link } from "../../../packages/parte-ui/src/Link/Link";
-import { LinkProps } from "../../../packages/parte-ui/src/Link/Link.types";
 
 export default {
   title: "Components/Buttons/Link",

@@ -1,13 +1,12 @@
-import Radio from './Radio';
-import { Story, Meta } from '@storybook/react';
-import { RadioProps } from './Radio.types';
+import { Radio, RadioProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: 'Components/Controls/RadioGroup/Radio',
+  title: "Components/Controls/RadioGroup/Radio",
   component: Radio,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -17,7 +16,7 @@ const Template: Story<RadioProps> = ({ ...args }) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  label: 'TEST',
-  value: 'TEST',
+  label: "TEST",
+  value: "TEST",
   disabled: false,
 };

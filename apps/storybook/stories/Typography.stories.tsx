@@ -1,6 +1,5 @@
-import { Heading, Paragraph, Caption, Code } from "@parte/ui";
+import { Heading, Paragraph, Caption, Code, Box } from "@parte/ui";
 import { Story, Meta } from "@storybook/react";
-import { Box } from "../../../packages/parte-ui/src/Layout";
 
 export default {
   title: "Foundation/Typography",

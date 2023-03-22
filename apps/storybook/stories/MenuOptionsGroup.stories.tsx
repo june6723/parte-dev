@@ -1,43 +1,40 @@
-import MenuOptionsGroup from './MenuOptionsGroup';
-import { Story, Meta } from '@storybook/react';
-import { MenuOptionsGroupProps } from './MenuOptionsGroup.types';
-import Menu from '../Menu';
-import { MenuDivider } from '../MenuDivider';
-import { useState } from 'react';
+import { Menu, MenuOptionsGroupProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useState } from "react";
 
 export default {
-  title: 'Components/Menu/MenuOptionsGroup',
-  component: MenuOptionsGroup,
+  title: "Components/Menu/MenuOptionsGroup",
+  component: Menu.OptionsGroup,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
 const Template: Story<MenuOptionsGroupProps<string>> = () => {
-  const [selectedOrder, setSelectedOrder] = useState('asc');
-  const [selectedField, setSelectedField] = useState('email');
+  const [selectedOrder, setSelectedOrder] = useState("asc");
+  const [selectedField, setSelectedField] = useState("email");
 
   return (
     <Menu>
-      <MenuOptionsGroup
+      <Menu.OptionsGroup
         title="Order"
         options={[
-          { label: 'Ascending', value: 'asc' },
-          { label: 'Descending', value: 'desc' },
+          { label: "Ascending", value: "asc" },
+          { label: "Descending", value: "desc" },
         ]}
         selected={selectedOrder}
         onChange={(selected) => setSelectedOrder(selected)}
       />
-      <MenuDivider />
-      <MenuOptionsGroup
+      <Menu.Divider />
+      <Menu.OptionsGroup
         title="Show"
         options={[
-          { label: 'Email', value: 'email' },
-          { label: 'Phone', value: 'phone' },
-          { label: 'State', value: 'state' },
-          { label: 'Country', value: 'country' },
-          { label: 'Type', value: 'type' },
+          { label: "Email", value: "email" },
+          { label: "Phone", value: "phone" },
+          { label: "State", value: "state" },
+          { label: "Country", value: "country" },
+          { label: "Type", value: "type" },
         ]}
         selected={selectedField}
         onChange={(selected) => setSelectedField(selected)}
@@ -48,5 +45,5 @@ const Template: Story<MenuOptionsGroupProps<string>> = () => {
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'title',
+  title: "title",
 };

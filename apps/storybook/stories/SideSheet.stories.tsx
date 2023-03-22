@@ -1,19 +1,14 @@
-import { Story, Meta } from '@storybook/react';
-import { useState } from 'react';
-import Button from '../Button';
-import { Tab } from '../Tabs/Tab';
-import { Tabs } from '../Tabs';
-import SideSheet from './SideSheet';
-import { SideSheetProps } from './SideSheet.types';
-import styled, { css } from 'styled-components';
-import { Box } from '../Layout';
+import { Box, Button, SideSheet, SideSheetProps, Tab, Tabs } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useState } from "react";
+import styled, { css } from "styled-components";
 
 export default {
-  title: 'Components/Overlays/SideSheet',
+  title: "Components/Overlays/SideSheet",
   component: SideSheet,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -21,12 +16,12 @@ const Template: Story<SideSheetProps> = ({ ...args }) => {
   const [open, setOpen] = useState(false);
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto' }}
+      style={{ display: "flex", flexDirection: "column", overflowY: "auto" }}
     >
       <Button variant="primary" onClick={() => setOpen(true)}>
         Open SideSheet
       </Button>
-      <div style={{ width: '100%', height: '1000px' }} />
+      <div style={{ width: "100%", height: "1000px" }} />
       <SideSheet
         {...args}
         isShown={open}
@@ -89,12 +84,12 @@ const Featured: Story<SideSheetProps> = ({ ...args }) => {
 
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto' }}
+      style={{ display: "flex", flexDirection: "column", overflowY: "auto" }}
     >
       <Button variant="primary" onClick={() => setOpen(true)}>
         Open SideSheet
       </Button>
-      <div style={{ width: '100%', height: '1000px' }} />
+      <div style={{ width: "100%", height: "1000px" }} />
       <SideSheet
         {...args}
         isShown={open}
@@ -113,7 +108,7 @@ const Featured: Story<SideSheetProps> = ({ ...args }) => {
           </Header>
           <TabList padding={8} paddingLeft={32} paddingRight={32} width="100%">
             <Tabs>
-              {['Traits', 'Event History', 'Identities'].map((tab, index) => (
+              {["Traits", "Event History", "Identities"].map((tab, index) => (
                 <Tab
                   key={tab}
                   variant="Secondary"

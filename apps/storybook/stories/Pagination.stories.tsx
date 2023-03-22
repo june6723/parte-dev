@@ -1,14 +1,13 @@
-import Pagination from './Pagination';
-import { Story, Meta } from '@storybook/react';
-import { PaginationProps } from './Pagination.types';
-import { useCallback, useState } from 'react';
+import { Pagination, PaginationProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useCallback, useState } from "react";
 
 export default {
-  title: 'Components/Controls/Pagination',
+  title: "Components/Controls/Pagination",
   component: Pagination,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 

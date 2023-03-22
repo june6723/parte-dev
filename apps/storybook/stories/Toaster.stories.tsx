@@ -1,29 +1,26 @@
-import { Story, Meta } from '@storybook/react';
-import toaster from '.';
-import { Alert } from '../Alerts';
-import { AlertProps } from '../Alerts/Alert.types';
-import Button from '../Button';
+import { Alert, AlertProps, Button, toaster } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: 'Components/Alerts/Toaster',
+  title: "Components/Alerts/Toaster",
   component: Alert,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
 const Template: Story<AlertProps> = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
       <Button
         variant="primary"
         onClick={() =>
           toaster.notify({
-            title: '헤벌레',
-            status: 'warning',
+            title: "헤벌레",
+            status: "warning",
             description:
-              'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ',
+              "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
           })
         }
       >
@@ -33,8 +30,8 @@ const Template: Story<AlertProps> = () => {
         variant="primary"
         onClick={() =>
           toaster.notify({
-            title: '미식가세요?ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅇㅋㅋㅋㅎㅋㅋㅋㅋ',
-            status: 'error',
+            title: "미식가세요?ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅇㅋㅋㅋㅎㅋㅋㅋㅋ",
+            status: "error",
           })
         }
       >
@@ -44,9 +41,9 @@ const Template: Story<AlertProps> = () => {
         variant="primary"
         onClick={() =>
           toaster.notify({
-            title: '수정과',
-            status: 'info',
-            description: '이게 잣인감?ㅋㅋㅋㅋㅋㅋㅋㅋ엌ㅋㅋㅋㅋㅋㅋ',
+            title: "수정과",
+            status: "info",
+            description: "이게 잣인감?ㅋㅋㅋㅋㅋㅋㅋㅋ엌ㅋㅋㅋㅋㅋㅋ",
           })
         }
       >
@@ -56,10 +53,10 @@ const Template: Story<AlertProps> = () => {
         variant="primary"
         onClick={() =>
           toaster.notify({
-            title: 'g.o.d',
-            status: 'success',
+            title: "g.o.d",
+            status: "success",
             description:
-              '지오디? ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ엌 ㅋㅋㅋㅋㅋㅋ엌ㅋㅋㅋㅋ',
+              "지오디? ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ엌 ㅋㅋㅋㅋㅋㅋ엌ㅋㅋㅋㅋ",
           })
         }
       >

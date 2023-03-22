@@ -1,11 +1,9 @@
-import { MenuGroup } from "../../../packages/parte-ui/src/Menu/MenuGroup/MenuGroup";
+import { Menu, MenuGroupProps } from "@parte/ui";
 import { Story, Meta } from "@storybook/react";
-import { MenuGroupProps } from "../../../packages/parte-ui/src/Menu/MenuGroup/MenuGroup.types";
-import { MenuRow } from "../../../packages/parte-ui/src/Menu/MenuRow";
 
 export default {
   title: "Components/Menu/MenuGroup",
-  component: MenuGroup,
+  component: Menu.Group,
   parameters: {
     layout: "centered",
     viewport: "responsive",
@@ -14,11 +12,11 @@ export default {
 
 const Template: Story<MenuGroupProps> = ({ ...args }) => {
   return (
-    <MenuGroup {...args}>
-      <MenuRow>Label 1</MenuRow>
-      <MenuRow>Label 2</MenuRow>
-      <MenuRow>Label 3</MenuRow>
-    </MenuGroup>
+    <Menu.Group {...args}>
+      <Menu.Row>Label 1</Menu.Row>
+      <Menu.Row>Label 2</Menu.Row>
+      <Menu.Row>Label 3</Menu.Row>
+    </Menu.Group>
   );
 };
 

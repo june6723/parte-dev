@@ -1,14 +1,13 @@
-import Tab from './Tab';
-import { Story, Meta } from '@storybook/react';
-import { TabProps } from './Tab.types';
-import ActionLockIcon from '../../parte-icons/Icons/ActionLockIcon';
+import { ActionLockIcon } from "@parte/icons";
+import { Tab, TabProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: 'Components/Controls/Tabs/Tab',
+  title: "Components/Controls/Tabs/Tab",
   component: Tab,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -34,5 +33,5 @@ export const IconDisabled = Template.bind({});
 IconDisabled.args = {
   trailingIcon: <ActionLockIcon size={12} />,
   disabled: true,
-  variant: 'Primary',
+  variant: "Primary",
 };

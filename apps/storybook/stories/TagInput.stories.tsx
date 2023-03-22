@@ -1,31 +1,28 @@
-import TagInput from './TagInput';
-import { Story, Meta } from '@storybook/react';
-import { TagInputProps } from './TagInput.types';
-import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
-import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
-import { useState } from 'react';
-import { TagOption } from './Tag/Tag.types';
+import { ActionCrossIcon, InterfaceCaretDownIcon } from "@parte/icons";
+import { TagInput, TagInputProps, TagOption } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useState } from "react";
 
 export default {
-  title: 'Components/Forms/TagInput',
+  title: "Components/Forms/TagInput",
   component: TagInput,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
 const OPTION_LIST: TagOption[] = [
-  { label: 'label1', value: '1', status: 'normal' },
-  { label: 'label2', value: '2', status: 'error' },
-  { label: 'label3', value: '3', status: 'disabled' },
+  { label: "label1", value: "1", status: "normal" },
+  { label: "label2", value: "2", status: "error" },
+  { label: "label3", value: "3", status: "disabled" },
 ];
 
 const Template: Story<TagInputProps> = ({ ...args }) => {
   const [values, setValues] = useState<TagOption[]>(OPTION_LIST);
 
   const onAdd = (label: string) => {
-    setValues((props) => [...props, { label, value: label, status: 'normal' }]);
+    setValues((props) => [...props, { label, value: label, status: "normal" }]);
   };
 
   const onRemove = (value: string) => {
@@ -37,7 +34,7 @@ const Template: Story<TagInputProps> = ({ ...args }) => {
     <TagInput
       {...args}
       trailingIcon={
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div style={{ display: "flex", gap: "8px" }}>
           <ActionCrossIcon
             size={12}
             color="muted"

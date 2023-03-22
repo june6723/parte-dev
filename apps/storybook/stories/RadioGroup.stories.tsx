@@ -1,9 +1,6 @@
-import { RadioGroup } from "../../../packages/parte-ui/src/RadioGroup/RadioGroup";
+import { Box, Radio, RadioGroup, RadioGroupProps } from "@parte/ui";
 import { Story, Meta } from "@storybook/react";
-import { Radio } from "../../../packages/parte-ui/src/Radio/Radio";
-import { RadioGroupProps } from "../../../packages/parte-ui/src/RadioGroup/RadioGroup.types";
 import { ChangeEvent, useState } from "react";
-import { Box } from "../../../packages/parte-ui/src/Layout";
 
 export default {
   title: "Components/Controls/RadioGroup",

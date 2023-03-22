@@ -1,27 +1,30 @@
-import { Story, Meta } from '@storybook/react';
-import Tabs from './Tabs';
-import { TabsProps } from './Tabs.types';
-import { useState } from 'react';
-import Tab from './Tab/Tab';
-import { TabVariant } from './Tab/Tab.types';
-import ActionTickIcon from '../parte-icons/Icons/ActionTickIcon';
-import { SidebarTab } from './SidebarTab';
-import { Box } from '../Layout';
+import { ActionTickIcon } from "@parte/icons";
+import {
+  Box,
+  Option,
+  SidebarTab,
+  Tab,
+  Tabs,
+  TabsProps,
+  TabVariant,
+} from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
+import { useState } from "react";
 
 export default {
-  title: 'Components/Controls/Tabs',
+  title: "Components/Controls/Tabs",
   component: Tabs,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
 const SAMPLE_TABS: Option<string>[] = [
-  { label: 'Tab 1', value: 'Tab 1' },
-  { label: 'Tab 2', value: 'Tab 2' },
-  { label: 'Tab 3', value: 'Tab 3' },
-  { label: 'Tab 4', value: 'Tab 4' },
+  { label: "Tab 1", value: "Tab 1" },
+  { label: "Tab 2", value: "Tab 2" },
+  { label: "Tab 3", value: "Tab 3" },
+  { label: "Tab 4", value: "Tab 4" },
 ];
 
 const Template: Story<TabsProps & { variant?: TabVariant }> = ({
@@ -75,7 +78,7 @@ Primary.args = {};
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  variant: 'Secondary',
+  variant: "Secondary",
 };
 
 export const IconTab = IconTemplate.bind({});

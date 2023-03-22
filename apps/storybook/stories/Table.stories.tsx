@@ -2,23 +2,23 @@ import { Meta, Story } from "@storybook/react";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import { useState } from "react";
 import styled from "styled-components";
-import { Heading } from "../../../packages/parte-ui/src/@foundations/Typography";
-import { Avatar } from "../../../packages/parte-ui/src/Avatar";
-import { Badge } from "../../../packages/parte-ui/src/Badge";
-import { Checkbox } from "../../../packages/parte-ui/src/Checkbox";
-import { Dropdown } from "../../../packages/parte-ui/src/Dropdown";
-import { IconButton } from "../../../packages/parte-ui/src/IconButton";
-import { Link } from "../../../packages/parte-ui/src/Link";
-import { Menu } from "../../../packages/parte-ui/src/Menu";
 import { ActionChatIcon, InterfaceMoreIcon } from "@parte/icons";
-import { toaster } from "../../../packages/parte-ui/src/Toaster";
-import { Toggle } from "../../../packages/parte-ui/src/Toggle";
 import {
+  Avatar,
+  Badge,
   Cell,
+  Checkbox,
+  Dropdown,
   FilterHeader,
   HeaderCell,
-} from "../../../packages/parte-ui/src/Table/Table";
-import { TableTemplate } from "../../../packages/parte-ui/src/Table/TableTemplate";
+  Heading,
+  IconButton,
+  Link,
+  Menu,
+  TableTemplate,
+  toaster,
+  Toggle,
+} from "@parte/ui";
 
 type UserType = "user" | "manager" | "admin";
 type User = {

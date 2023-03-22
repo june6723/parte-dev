@@ -1,13 +1,12 @@
-import SelectRow from './SelectRow';
-import { Story, Meta } from '@storybook/react';
-import { SelectRowProps } from './SelectRow.types';
+import { SelectRow, SelectRowProps } from "@parte/ui";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-  title: 'Components/Dropdown/SelectRow',
+  title: "Components/Dropdown/SelectRow",
   component: SelectRow,
   parameters: {
-    layout: 'centered',
-    viewport: 'responsive',
+    layout: "centered",
+    viewport: "responsive",
   },
 } as Meta;
 
@@ -17,5 +16,5 @@ const Template: Story<SelectRowProps> = ({ ...args }) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  variant: 'element',
+  variant: "element",
 };
