@@ -31,3 +31,5 @@ export const Tooltip = ({
     </Fragment>
   );
 };
+
+Tooltip.Content = Styled.Content;

@@ -39,3 +39,9 @@ Default.args = {
   hideDelay: 100,
   showDelay: 100,
 };
+
+const TooltipTemplate: Story<TooltipProps> = () => {
+  return <Tooltip.Content>툴팁의 내용</Tooltip.Content>;
+};
+
+export const TooltipContent = TooltipTemplate.bind({});
