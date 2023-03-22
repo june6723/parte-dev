@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { getInitial } from "../common/utils/badge.utils";
+import { getInitial } from "../utils/badge.utils";
 import * as Styled from "./Avatar.styled";
 import { AvatarProps } from "./Avatar.types";
 

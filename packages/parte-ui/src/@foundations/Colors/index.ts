@@ -1,2 +1,2 @@
-export { COLORS, type ColorKey, type Colors } from "./colors";
+export * from "./colors";
 export { ColorList } from "./ColorList";

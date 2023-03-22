@@ -1,20 +1,20 @@
 import { ReactNode } from "react";
 import { ThemeProvider as DefaultThemeProvider } from "styled-components";
-import { Colors } from "../@foundations";
+import { Colors } from ".";
 import { ColorTokenType } from "./theme/colorToken";
-import defaultTheme from "./theme";
+import { theme as defaultTheme } from "./theme";
 
-type CustomTheme = Partial<ColorTokenType> & {
+export type CustomTheme = Partial<ColorTokenType> & {
   colors?: Partial<Colors>;
 };
 
 type Props = {
-  theme?: CustomTheme;
+  customTheme?: CustomTheme;
   children: ReactNode;
 };
 
-export default function ThemeProvider({ children, theme = {} }: Props) {
-  const customizedTheme = overrideTheme(theme);
+export function ThemeProvider({ children, customTheme = {} }: Props) {
+  const customizedTheme = overrideTheme(customTheme);
 
   return (
     <DefaultThemeProvider theme={customizedTheme}>

@@ -1,4 +1,4 @@
-import { BADGE_COLOR, BadgeColors } from "../../@foundations";
+import { BADGE_COLOR, BadgeColors } from "../@foundations";
 
 export const getInitial = (name: string, fallback = "?") => {
   if (!name) return fallback;

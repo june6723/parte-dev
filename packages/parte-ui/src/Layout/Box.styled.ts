@@ -1,15 +1,15 @@
-import { css } from 'styled-components';
-import { getElevation } from '../common/utils/elevation.util';
+import { css } from "styled-components";
+import { getElevation } from "../utils/elevation.util";
 import {
   getWidthStyle,
   getFlexBasisStyle,
   getHeightStyle,
-} from '../common/utils/style.util';
-import { BoxProps } from './Box.types';
+} from "../utils/style.util";
+import { BoxProps } from "./Box.types";
 
 export const commonBoxStyle = css<BoxProps>`
   ${({
-    display = 'block',
+    display = "block",
     width,
     height,
     // ====================
@@ -64,9 +64,9 @@ export const commonBoxStyle = css<BoxProps>`
       ${columnGap && `column-gap: ${columnGap}px;`}
       ${gap && `gap: ${gap}px;`}
 
-      ${typeof order === 'number' ? `order: ${order};` : ''};
-      ${typeof flexGrow === 'number' ? `flex-grow: ${flexGrow};` : ''};
-      ${typeof flexShrink === 'number' ? `flex-shrink: ${flexShrink};` : ''};
+      ${typeof order === "number" ? `order: ${order};` : ""};
+      ${typeof flexGrow === "number" ? `flex-grow: ${flexGrow};` : ""};
+      ${typeof flexShrink === "number" ? `flex-shrink: ${flexShrink};` : ""};
       ${getFlexBasisStyle(flexBasis)}
       ${flex && `flex: ${flex};`}
       ${alignSelf && `align-self: ${alignSelf};`}
@@ -74,41 +74,41 @@ export const commonBoxStyle = css<BoxProps>`
       ${gridTemplateColumns && `grid-template-columns: ${gridTemplateColumns};`}
       ${gridTemplateRows && `grid-template-rows: ${gridTemplateRows};`}
       
-      ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']};
+      ${[typeof padding === "number" ? `padding: ${padding}px;` : ""]};
       ${[
-        typeof paddingLeft === 'number'
+        typeof paddingLeft === "number"
           ? `padding-left: ${paddingLeft}px;`
-          : '',
+          : "",
       ]};
       ${[
-        typeof paddingRight === 'number'
+        typeof paddingRight === "number"
           ? `padding-right: ${paddingRight}px;`
-          : '',
+          : "",
       ]};
       ${[
-        typeof paddingTop === 'number' ? `padding-top: ${paddingTop}px;` : '',
+        typeof paddingTop === "number" ? `padding-top: ${paddingTop}px;` : "",
       ]};
       ${[
-        typeof paddingBottom === 'number'
+        typeof paddingBottom === "number"
           ? `padding-bottom: ${paddingBottom}px;`
-          : '',
+          : "",
       ]};
-      ${[typeof margin === 'number' ? `margin: ${margin}px;` : '']};
+      ${[typeof margin === "number" ? `margin: ${margin}px;` : ""]};
       ${[
-        typeof marginLeft === 'number' ? `margin-left: ${marginLeft}px;` : '',
+        typeof marginLeft === "number" ? `margin-left: ${marginLeft}px;` : "",
       ]};
       ${[
-        typeof marginRight === 'number'
+        typeof marginRight === "number"
           ? `margin-right: ${marginRight}px;`
-          : '',
+          : "",
       ]};
-      ${[typeof marginTop === 'number' ? `margin-top: ${marginTop}px;` : '']};
+      ${[typeof marginTop === "number" ? `margin-top: ${marginTop}px;` : ""]};
       ${[
-        typeof marginBottom === 'number'
+        typeof marginBottom === "number"
           ? `margin-bottom: ${marginBottom}px;`
-          : '',
+          : "",
       ]};
 
-      ${typeof elevation === 'number' && getElevation(elevation)};
+      ${typeof elevation === "number" && getElevation(elevation)};
     `}
 `;

@@ -1,16 +1,13 @@
-import styled, { css } from 'styled-components';
-import {
-  getColors,
-  getAvatarInitialsFontSize,
-} from '../common/utils/badge.utils';
-import { Box } from '../Layout';
-import { AvatarProps } from './Avatar.types';
+import styled, { css } from "styled-components";
+import { getColors, getAvatarInitialsFontSize } from "../utils/badge.utils";
+import { Box } from "../Layout";
+import { AvatarProps } from "./Avatar.types";
 
 export const commonAvatarStyles = css<AvatarProps>`
-  ${({ size = 32, shape = 'CIRCLE' }) => css`
+  ${({ size = 32, shape = "CIRCLE" }) => css`
     width: ${size}px;
     height: ${size}px;
-    border-radius: ${shape === 'CIRCLE' ? '100%' : '4px'};
+    border-radius: ${shape === "CIRCLE" ? "100%" : "4px"};
   `}
 `;
 

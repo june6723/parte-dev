@@ -6,7 +6,7 @@ import {
   MouseEventHandler,
   useCallback,
 } from "react";
-import preventBodyScroll from "../common/utils/scroll.util";
+import preventBodyScroll from "../utils/scroll.util";
 import { Portal } from "../Portal";
 import { OverlayProps } from "./Overlay.types";
 import * as Styled from "./Overlay.styled";

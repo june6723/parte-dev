@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { getColors } from '../common/utils/badge.utils';
-import { Box } from '../Layout';
-import { BadgeProps } from './Badge.types';
+import styled, { css } from "styled-components";
+import { getColors } from "../utils/badge.utils";
+import { Box } from "../Layout";
+import { BadgeProps } from "./Badge.types";
 
 export const commonBadgeStyles = css<BadgeProps>`
   ${({ theme }) => css`
@@ -11,9 +11,9 @@ export const commonBadgeStyles = css<BadgeProps>`
 `;
 
 export const Badge = styled(Box)<BadgeProps>`
-  ${({ badgeColor, type = 'badge' }) => css`
+  ${({ badgeColor, type = "badge" }) => css`
     display: flex;
-    border-radius: ${type === 'badge' ? '4px' : '8px'};
+    border-radius: ${type === "badge" ? "4px" : "8px"};
     ${getColors(badgeColor)}
     ${commonBadgeStyles}
   `}
